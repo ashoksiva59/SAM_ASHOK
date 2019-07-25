@@ -214,7 +214,7 @@
 					"Buttons": [
 						{
 							"OnPress": {
-								"Handler": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/OperationStartMessage.action",
+								"Handler": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStart.rule.js",
 								"UserInteraction": {
 									"Enabled": true,
 									"Title": "Button"

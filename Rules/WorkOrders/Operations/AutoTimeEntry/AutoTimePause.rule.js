@@ -1,6 +1,3 @@
-var clientAPI;
-
-/**
- * Describe this function...
- */
-export default function AutoTimePause(clientAPI) {}
+export default function AutoTimePause(clientAPI) {
+	return clientAPI;
+}
