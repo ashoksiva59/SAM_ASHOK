@@ -1,0 +1,26 @@
+{
+	"Collection": [
+		"Divisions"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Plants_NAV",
+			"_Type": "Plant"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "Description",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "Division",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "Division"
+}

@@ -1,0 +1,26 @@
+{
+	"Collection": [
+		"AssetCentralEquipmentLinks"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "Equipment_Nav",
+			"_Type": "MyEquipment"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "EquipId",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "AINEquipmentGUID",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "AssetCentralEquipmentLink"
+}

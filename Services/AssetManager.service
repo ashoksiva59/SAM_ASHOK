@@ -1,0 +1,7 @@
+{
+	"AppId": "com.deloitte.sam",
+	"DestinationName": "DEST_SAM40_PPROP",
+	"LanguageURLParam": "sap-language",
+	"OfflineEnabled": true,
+	"ServiceUrl": "/destinations/mobileservices"
+}

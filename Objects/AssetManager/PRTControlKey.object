@@ -1,0 +1,26 @@
+{
+	"Collection": [
+		"PRTControlKeys"
+	],
+	"NavigationProperties": [
+		{
+			"Key": false,
+			"_Name": "MyWorkOrderTools_Nav",
+			"_Type": "MyWorkOrderTool"
+		}
+	],
+	"Properties": [
+		{
+			"Key": false,
+			"_Name": "PRTControlKeyDesc",
+			"_Type": "Edm.String"
+		},
+		{
+			"Key": true,
+			"_Name": "PRTControlKey",
+			"_Type": "Edm.String"
+		}
+	],
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+	"_Name": "PRTControlKey"
+}

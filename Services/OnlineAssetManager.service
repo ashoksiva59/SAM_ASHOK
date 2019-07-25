@@ -1,0 +1,6 @@
+{
+	"AppId": "com.deloitte.sam",
+	"DestinationName": "DEST_SAM40_PPROP",
+	"OfflineEnabled": false,
+	"ServiceUrl": "/destinations/mobileservices"
+}

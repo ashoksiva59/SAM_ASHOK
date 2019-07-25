@@ -1,0 +1,11 @@
+{
+	"Actions": [
+		"/SAPAssetManager/Rules/Checklists/FormAssessmentQuestionUpdate.js"
+	],
+	"OnFailure": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js",
+	"OnSuccess": "/SAPAssetManager/Rules/Checklists/ChecklistFDCUpdateSuccess.js",
+	"Target": {
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"_Type": "Action.Type.ODataService.ChangeSet"
+}

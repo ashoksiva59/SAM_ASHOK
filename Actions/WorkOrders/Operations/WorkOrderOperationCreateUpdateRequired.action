@@ -1,0 +1,13 @@
+{
+    "OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/Operations/CreateUpdate/WorkOrderOperationCreateUpdateOnCommit.js",
+    "RequiredFields": [
+        "DescriptionNote",
+        "ControlKeyLstPkr",
+        "WorkCenterLstPkr",
+        "WorkCenterPlantLstPkr"
+    ],
+    "_Type": "Action.Type.CheckRequiredFields",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "
+}
