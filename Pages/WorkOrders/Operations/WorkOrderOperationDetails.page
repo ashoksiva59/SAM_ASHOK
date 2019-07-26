@@ -211,44 +211,49 @@
 					"_Type": "Section.Type.SimplePropertyCollection"
 				},
 				{
-					"Buttons": [
+					"Layout": {
+						"NumberOfColumns": 3
+					},
+					"ObjectCells": [
 						{
-							"OnPress": {
-								"Handler": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStart.rule.js",
-								"UserInteraction": {
-									"Enabled": true,
-									"Title": "Button"
-								}
-							},
-							"Style": "FormCellButton",
-							"TextAlignment": "center",
-							"Title": "Start",
-							"Visible": true
+							"ObjectCell": {
+								"AccessoryType": "none",
+								"Description": "Start",
+								"DetailImage": "/SAPAssetManager/Images/Pause.png",
+								"DetailImageIsCircular": false,
+								"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStart.rule.js",
+								"PreserveIconStackSpacing": true,
+								"Title": "Start",
+								"Visible": true
+							}
 						},
 						{
-							"OnPress": {
-								"Handler": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/OperationPause.action",
-								"UserInteraction": {
-									"Enabled": false,
-									"Title": "Pause"
-								}
-							},
-							"Style": "ObjectCellStyleBlack",
-							"TextAlignment": "center",
-							"Title": "Pause",
-							"Visible": true
+							"ObjectCell": {
+								"AccessoryType": "none",
+								"Description": "Pause",
+								"DetailImage": "/SAPAssetManager/Images/Start.png",
+								"DetailImageIsCircular": false,
+								"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/OperationPause.action",
+								"PreserveIconStackSpacing": true,
+								"Title": "Pause",
+								"Visible": true
+							}
 						},
 						{
-							"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStop.rule.js",
-							"Style": "FormCellValueStandard",
-							"TextAlignment": "center",
-							"Title": "Stop",
-							"Visible": true
+							"ObjectCell": {
+								"AccessoryType": "none",
+								"Description": "Stop",
+								"DetailImage": "/SAPAssetManager/Images/Stop.png",
+								"DetailImageIsCircular": false,
+								"PreserveIconStackSpacing": true,
+								"Title": "Stop",
+								"Visible": true
+							}
 						}
 					],
 					"Visible": true,
-					"_Name": "SectionButtonTable0",
-					"_Type": "Section.Type.ButtonTable"
+					"_Name": "SectionObjectCollection0",
+					"_Type": "Section.Type.ObjectCollection"
 				}
 			],
 			"_Name": "SectionedTable0",
