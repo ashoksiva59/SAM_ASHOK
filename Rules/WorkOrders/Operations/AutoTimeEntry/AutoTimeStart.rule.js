@@ -1,4 +1,4 @@
-export default function AutoTimeStart(clientAPI) {
+export default function AutoTimeStart(context) {
 	debugger;
-	return clientAPI;
+	//return clientAPI;
 }
