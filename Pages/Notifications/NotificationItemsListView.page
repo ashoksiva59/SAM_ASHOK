@@ -1,56 +1,56 @@
 {
+	"ActionBar": {
+		"Items": [
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateNav.js",
+				"Position": "right"
+			}
+		]
+	},
 	"Caption": "$(L,notification_items)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"Icons": "/SAPAssetManager/Rules/Notifications/Item/NotificationItemIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Item/NotificationItemDetailsNav.action",
+						"PreserveIconStackSpacing": true,
+						"StatusText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Items",
+						"QueryOptions": "$expand=Notification&$orderby=ItemSortNumber asc",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "NotificationItems",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"MyNotificationItems"
+	],
 	"OnLoaded": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsItemListViewOnLoad.js",
 	"OnReturning": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsItemListOnReturn.js",
-
-	"ActionBar":
-	{
-		"Items":
-		[{
-			"Position": "right",
-            "Icon": "res://add",
-			"OnPress": "/SAPAssetManager/Rules/Notifications/Item/CreateUpdate/NotificationItemCreateNav.js"
-		}]
-	},
-	"Controls":
-	[{
-		"Sections":
-		[{
-			"Search":
-			{
-				"Enabled" : true,
-				"Delay": 500,
-				"MinimumCharacterThreshold": 3,
-				"Placeholder": "$(L,search)",
-				"BarcodeScanner": true
-			},
-			"Header": {
-		 		"UseTopPadding": false
-    		},
-			"ObjectCell":
-			{	
-				"PreserveIconStackSpacing": true,
-				"Icons":"/SAPAssetManager/Rules/Notifications/Item/NotificationItemIconImages.js",
-				"AccessoryType": "disclosureIndicator",
-                "Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
-                "Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
-                "Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
-				"StatusText" : "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsItemListFormat.js",
-				"OnPress": "/SAPAssetManager/Actions/Notifications/Item/NotificationItemDetailsNav.action"
-			},
-            "Target":
-			{
-                "EntitySet" : "{{#Property:@odata.id}}/Items",
-                "Service" : "/SAPAssetManager/Services/AssetManager.service",
-                "QueryOptions": "$expand=Notification&$orderby=ItemSortNumber asc"
-            },
-			"_Name" : "NotificationItems",
-			"_Type" : "Section.Type.ObjectTable"
-		}],
-		"_Type" : "Control.Type.SectionedTable"
-	}],
-	"_Type": "Page",
 	"_Name": "NotificationItemsListViewPage",
-	"DataSubscriptions": ["MyNotificationItems"]
-
+	"_Type": "Page"
 }

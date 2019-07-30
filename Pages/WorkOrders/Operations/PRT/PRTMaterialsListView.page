@@ -1,31 +1,32 @@
 {
-    "Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTMaterialsListViewCaption.js",
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Header": {
-		 		        "UseTopPadding": false
-    		        },
-                    "ObjectCell": {
-                        "AccessoryType": "disclosureIndicator",
-                        "Title": "{Description}",
-                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTMaterialDetailsViewNav.action",
-                        "PreserveIconStackSpacing": false,
-                        "Subhead": "{Material}"
-                    },
-                    "Target": {
-                        "EntitySet": "{{#Property:@odata.readLink}}/Tools",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "$filter=(PRTCategory eq 'M')"
-                    },
-                    "_Type": "Section.Type.ObjectTable",
-                    "_Name": "Materials"
-                }
-            ],
-            "_Type": "Control.Type.SectionedTable"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "MaterialsListViewPage"
+	"Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTMaterialsListViewCaption.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTMaterialDetailsViewNav.action",
+						"PreserveIconStackSpacing": false,
+						"Subhead": "{Material}",
+						"Title": "{Description}"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/Tools",
+						"QueryOptions": "$filter=(PRTCategory eq 'M')",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "Materials",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "MaterialsListViewPage",
+	"_Type": "Page"
 }

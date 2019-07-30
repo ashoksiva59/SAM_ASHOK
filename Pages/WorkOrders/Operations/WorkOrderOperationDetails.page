@@ -209,51 +209,6 @@
 					],
 					"_Name": "SectionSimplePropertyCollection0",
 					"_Type": "Section.Type.SimplePropertyCollection"
-				},
-				{
-					"Layout": {
-						"NumberOfColumns": 3
-					},
-					"ObjectCells": [
-						{
-							"ObjectCell": {
-								"AccessoryType": "none",
-								"Description": "Start",
-								"DetailImage": "/SAPAssetManager/Images/Pause.png",
-								"DetailImageIsCircular": false,
-								"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStart.rule.js",
-								"PreserveIconStackSpacing": true,
-								"Title": "Start",
-								"Visible": true
-							}
-						},
-						{
-							"ObjectCell": {
-								"AccessoryType": "none",
-								"Description": "Pause",
-								"DetailImage": "/SAPAssetManager/Images/Start.png",
-								"DetailImageIsCircular": false,
-								"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/OperationPause.action",
-								"PreserveIconStackSpacing": true,
-								"Title": "Pause",
-								"Visible": true
-							}
-						},
-						{
-							"ObjectCell": {
-								"AccessoryType": "none",
-								"Description": "Stop",
-								"DetailImage": "/SAPAssetManager/Images/Stop.png",
-								"DetailImageIsCircular": false,
-								"PreserveIconStackSpacing": true,
-								"Title": "Stop",
-								"Visible": true
-							}
-						}
-					],
-					"Visible": true,
-					"_Name": "SectionObjectCollection0",
-					"_Type": "Section.Type.ObjectCollection"
 				}
 			],
 			"_Name": "SectionedTable0",
@@ -291,6 +246,15 @@
 				"SystemItem": "FlexibleSpace",
 				"Visible": true,
 				"_Name": "FlexibleSpaceRightTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			},
+			{
+				"Clickable": true,
+				"Enabled": true,
+				"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeEntry.action",
+				"SystemItem": "Add",
+				"Visible": true,
+				"_Name": "AutoEntryTime",
 				"_Type": "Control.Type.ToolbarItem"
 			}
 		]

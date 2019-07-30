@@ -1,73 +1,78 @@
 {
-    "ActionBar": {
-        "Items": [
-            {
-                "Position": "left",
-                "SystemItem": "Cancel",
-                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
-            },
-            {
-                "Position": "right",
-                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
-                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
-                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
-            }
-        ]
-    },
-    "Caption":"$(L,filter)",
-    "Result":
-    [
-        "#Page:SubEquipmentFilterPage/#Control:SortFilter/#Value",
-        "#Page:SubEquipmentFilterPage/#Control:StatusFilter/#Value"
-    ],
-    "Controls":
-    [{
-        "Sections":
-        [{
-            "Controls":
-            [{
-                "AllowEmptySelection":false,
-                "Caption":"$(L,sort_by)",
-                "SortByItems":
-                [{
-                    "ReturnValue":"EquipId",
-                    "DisplayValue":"$(L,equipment_id)"
-                },
-                {
-                    "ReturnValue":"EquipDesc",
-                    "DisplayValue":"$(L,description)"
-                }],
-                "_Name":"SortFilter",
-                "_Type":"Control.Type.FormCell.Sorter",
-                "IsEditable":true
-            }]
-        },
-        {
-            "Controls":
-            [{
-                "AllowMultipleSelection":true,
-                "AllowEmptySelection":true,
-                "Caption":"$(L,mobile_status)",
-                "FilterProperty":"/SAPAssetManager/Rules/Equipment/EquipmentStatus.js",
-                "_Name":"StatusFilter",
-                "_Type":"Control.Type.FormCell.Filter",
-                "IsEditable":true
-            }]
-        },
-        {
-            "Controls": [
-                {
-                    "Title": "$(L,reset_all)",
-                    "OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
-                    "_Type": "Control.Type.FormCell.Button",
-                    "_Name": "ResetButton"
-                }
-            ]
-        }],
-        "_Name":"FormCellContainer",
-        "_Type":"Control.Type.FormCellContainer"
-    }],
-    "_Type":"Page",
-    "_Name":"SubEquipmentFilterPage",
-    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js",
+				"Position": "right",
+				"SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+				"Text": "/SAPAssetManager/Rules/Filter/FilterText.js"
+			}
+		]
+	},
+	"Caption": "$(L,filter)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"AllowEmptySelection": false,
+							"Caption": "$(L,sort_by)",
+							"IsEditable": true,
+							"SortByItems": [
+								{
+									"DisplayValue": "$(L,equipment_id)",
+									"ReturnValue": "EquipId"
+								},
+								{
+									"DisplayValue": "$(L,description)",
+									"ReturnValue": "EquipDesc"
+								}
+							],
+							"_Name": "SortFilter",
+							"_Type": "Control.Type.FormCell.Sorter"
+						}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"AllowEmptySelection": true,
+							"AllowMultipleSelection": true,
+							"Caption": "$(L,mobile_status)",
+							"FilterProperty": "/SAPAssetManager/Rules/Equipment/EquipmentStatus.js",
+							"IsEditable": true,
+							"_Name": "StatusFilter",
+							"_Type": "Control.Type.FormCell.Filter"
+						}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+							"TextAlignment": "center",
+							"Title": "$(L,reset_all)",
+							"_Name": "ResetButton",
+							"_Type": "Control.Type.FormCell.Button"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js",
+	"Result": [
+		"#Page:SubEquipmentFilterPage/#Control:SortFilter/#Value",
+		"#Page:SubEquipmentFilterPage/#Control:StatusFilter/#Value"
+	],
+	"_Name": "SubEquipmentFilterPage",
+	"_Type": "Page"
 }

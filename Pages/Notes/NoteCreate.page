@@ -1,39 +1,38 @@
 {
-    "OnLoaded": "/SAPAssetManager/Rules/Notes/NoteCreateUpdateOnPageLoad.js",
-    "ActionBar": {
-        "Items": [
-            {
-                "Position": "right",
-                "Text": "/SAPAssetManager/Rules/Notes/NoteSaveText.js",
-                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
-                "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateOnCommit.js"
-            },
-            {
-                "Position": "left",
-                "SystemItem": "Cancel",
-                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
-            }
-        ]
-    },
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Controls": [
-                        {
-                            "PlaceHolder": "$(L,note)",
-                            "Value": "",
-                            "_Name": "LongTextNote",
-                            "_Type": "Control.Type.FormCell.Note",
-                            "IsAutoResizing": true
-                        } 
-                    ]
-                }
-            ],
-            "_Name": "FormCellContainer",
-            "_Type": "Control.Type.FormCellContainer"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "NoteAdd"
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateOnCommit.js",
+				"Position": "right",
+				"SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+				"Text": "/SAPAssetManager/Rules/Notes/NoteSaveText.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"IsAutoResizing": true,
+							"PlaceHolder": "$(L,note)",
+							"_Name": "LongTextNote",
+							"_Type": "Control.Type.FormCell.Note"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Notes/NoteCreateUpdateOnPageLoad.js",
+	"_Name": "NoteAdd",
+	"_Type": "Page"
 }

@@ -1,31 +1,32 @@
 {
-    "_Type": "Page",
-    "_Name": "PRTEquipmentsListViewPage",
-    "Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTEquipmentsListViewCaption.js",
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Header": {
-		 		        "UseTopPadding": false
-    		        },
-                    "ObjectCell": {
-                        "AccessoryType": "disclosureIndicator",
-                        "Title": "{Description}",
-                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTEquipmentDetailsViewNav.action",
-                        "PreserveIconStackSpacing": false,
-                        "Subhead": "{Equipment}"
-                    },
-                    "Target": {
-                        "EntitySet": "{{#Property:@odata.readLink}}/Tools",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "$filter=(PRTCategory eq 'E')&$expand=PRTEquipment&$orderby=ItemNum,ItemCounter"
-                    },
-                    "_Type": "Section.Type.ObjectTable",
-                    "_Name": "Equipments"
-                }
-            ],
-            "_Type": "Control.Type.SectionedTable"
-        }
-    ]
+	"Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTEquipmentsListViewCaption.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/PRT/PRTEquipmentDetailsViewNav.action",
+						"PreserveIconStackSpacing": false,
+						"Subhead": "{Equipment}",
+						"Title": "{Description}"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/Tools",
+						"QueryOptions": "$filter=(PRTCategory eq 'E')&$expand=PRTEquipment&$orderby=ItemNum,ItemCounter",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "Equipments",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "PRTEquipmentsListViewPage",
+	"_Type": "Page"
 }

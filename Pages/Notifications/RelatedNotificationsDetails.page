@@ -1,17 +1,12 @@
 {
-	"_Type": "Page",
-	"_Name": "RelatedNotificationsDetailsPage",
 	"Caption": "$(L,related_notification_details)",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "RelatedNotificationDetailsSectionedTable",
 			"Sections": [
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "WorkOrderHistoryDetailsSection",
 					"Header": {
-						"Caption": "$(L,related_notification_details)"
+						"Caption": "$(L,related_notification_details)",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -22,7 +17,6 @@
 							"KeyName": "$(L,number)",
 							"Value": "{NotificationNumber}"
 						},
-					
 						{
 							"KeyName": "$(L,priority)",
 							"Value": "#Property:HistoryPriority_Nav/#Property:PriorityDescription"
@@ -35,23 +29,34 @@
 							"KeyName": "$(L,date)",
 							"Value": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationEndDate.js"
 						}
-					]
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "WorkOrderHistoryDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				},
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "NotesSection",
-					"Layout": {
-						"NumberOfColumns": 1,
-                        "MinimumInteritemSpacing": 66
-					},
 					"KeyAndValues": [
 						{
 							"KeyName": "$(L, notes)",
 							"Value": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/NotificationHistoryLongTexts.js"
 						}
-					]
+					],
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"MaxItemCount": 1,
+					"_Name": "NotesSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-			]
+			],
+			"_Name": "RelatedNotificationDetailsSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"_Name": "RelatedNotificationsDetailsPage",
+	"_Type": "Page"
 }

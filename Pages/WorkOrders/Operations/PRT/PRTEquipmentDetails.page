@@ -1,26 +1,21 @@
 {
-	"_Type": "Page",
-	"_Name": "PRTEquipmentDetailsPage",
-	"Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTEquipmentDetailsCaption.js",
 	"ActionBar": {
-        "Items": [
-            {
-                "Position": "right",
-                "SystemItem": "Edit",
-                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/PRTEquipmentUpdateNav.js"
-            }
-        ]
-    },
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/PRT/PRTEquipmentUpdateNav.js",
+				"Position": "right",
+				"SystemItem": "Edit"
+			}
+		]
+	},
+	"Caption": "/SAPAssetManager/Rules/Operations/PRT/PRTEquipmentDetailsCaption.js",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "PRTEquipmentDetailsSectionedTable",
 			"Sections": [
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "PRTEquipmentDetailsSection",
 					"Header": {
-						"Caption": "$(L,equipment_details)"
+						"Caption": "$(L,equipment_details)",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -39,9 +34,19 @@
 							"KeyName": "$(L,item_number)",
 							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTItemValue.js"
 						}
-					]
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "PRTEquipmentDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-			]
+			],
+			"_Name": "PRTEquipmentDetailsSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"_Name": "PRTEquipmentDetailsPage",
+	"_Type": "Page"
 }

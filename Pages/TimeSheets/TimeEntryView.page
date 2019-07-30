@@ -1,23 +1,21 @@
 {
-    "Caption": "$(L,time_entry)",
-    "OnLoaded": "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryViewOnLoad.js",
-    "ActionBar": {
-        "Items": [
-            {
-                "Position": "right",
-                "SystemItem": "Edit",
-                "OnPress": "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryEditNav.js"
-            }
-        ]
-    },
-    "Controls": [
-        {
-            "Sections": [
-                {
-					"_Type": "Section.Type.KeyValue",
-                    "_Name": "TimeEntryDetailsSection",
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryEditNav.js",
+				"Position": "right",
+				"SystemItem": "Edit"
+			}
+		]
+	},
+	"Caption": "$(L,time_entry)",
+	"Controls": [
+		{
+			"Sections": [
+				{
 					"Header": {
-						"Caption": "$(L,time_details)"
+						"Caption": "$(L,time_details)",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -40,28 +38,36 @@
 							"KeyName": "$(L,activity_type)",
 							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewActivityType.js"
 						},
-                        {
-                            "KeyName": "$(L,workorder)",
-                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewWorkOrder.js"
-                        },
-                        {
-                            "KeyName": "$(L,operation)",
-                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewOperation.js"
-                        },
-                        {
-                            "KeyName": "$(L,suboperation)",
-                            "Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewSubOperation.js"
-                        },
-                        {
-                            "KeyName": "$(L,workcenter)",
-                            "Value": "{Workcenter}"
-                        }
-                    ]
+						{
+							"KeyName": "$(L,workorder)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewWorkOrder.js"
+						},
+						{
+							"KeyName": "$(L,operation)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewOperation.js"
+						},
+						{
+							"KeyName": "$(L,suboperation)",
+							"Value": "/SAPAssetManager/Rules/TimeSheets/Entry/View/TimeEntryViewSubOperation.js"
+						},
+						{
+							"KeyName": "$(L,workcenter)",
+							"Value": "{Workcenter}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "TimeEntryDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-            ],
-            "_Type": "Control.Type.SectionedTable"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "TimeEntryViewPage"
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/TimeSheets/TimeSheetEntryViewOnLoad.js",
+	"_Name": "TimeEntryViewPage",
+	"_Type": "Page"
 }

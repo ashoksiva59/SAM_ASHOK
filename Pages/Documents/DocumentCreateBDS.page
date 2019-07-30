@@ -1,48 +1,56 @@
 {
-	"Caption": "$(L,add_documents)",
 	"ActionBar": {
-    	"Items": [{
-			"Position": "right",
-			"SystemItem": "/SAPAssetManager/Rules/Common/Platform/DoneIcon.js",
-            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
-			"OnPress": "/SAPAssetManager/Actions/Documents/DocumentCreateBDS.action"
-		},{
-            "Position": "left",
-            "SystemItem": "Cancel",
-            "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
-        }]
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Actions/Documents/DocumentCreateBDS.action",
+				"Position": "right",
+				"SystemItem": "/SAPAssetManager/Rules/Common/Platform/DoneIcon.js",
+				"Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js"
+			}
+		]
 	},
-	 "Controls": [
-        {
-            "Sections": [
-                {
-                    "Controls": [
-                        {
-                            "PlaceHolder": "$(L,description)",
-                            "Value": "",
-                            "IsEditable": true,
-                            "IsVisible": true,
-                            "IsAutoResizing": true,
-                            "_Name": "AttachmentDescription",
-                            "_Type": "Control.Type.FormCell.Note"
-                        },
-                        {
-                            "_Name": "Attachment",
-                            "_Type": "Control.Type.FormCell.Attachment",
-                            "AttachmentTitle": "$(L,attached_files)",
-                            "AttachmentAddTitle": "$(L,add)",
-                            "AttachmentCancelTitle": "$(L,cancel)",
-                            "AttachmentActionType": ["AddPhoto", "TakePhoto", "SelectFile"],
-                            "AllowedFileTypes": [],
-                            "Value": []
-                        }
-                    ]
-                }
-            ],
-            "_Name": "FormCellContainer",
-            "_Type": "Control.Type.FormCellContainer"
-        }
-    ],
-	"_Type": "Page",
-	"_Name": "DocumentCreate"
+	"Caption": "$(L,add_documents)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"IsAutoResizing": true,
+							"IsEditable": true,
+							"IsVisible": true,
+							"PlaceHolder": "$(L,description)",
+							"_Name": "AttachmentDescription",
+							"_Type": "Control.Type.FormCell.Note"
+						},
+						{
+							"AllowedFileTypes": [
+							],
+							"AttachmentActionType": [
+								"AddPhoto",
+								"TakePhoto",
+								"SelectFile"
+							],
+							"AttachmentAddTitle": "$(L,add)",
+							"AttachmentCancelTitle": "$(L,cancel)",
+							"AttachmentTitle": "$(L,attached_files)",
+							"Value": [
+							],
+							"_Name": "Attachment",
+							"_Type": "Control.Type.FormCell.Attachment"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "DocumentCreate",
+	"_Type": "Page"
 }

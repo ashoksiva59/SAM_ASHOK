@@ -1,55 +1,55 @@
 {
+	"ActionBar": {
+		"Items": [
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Activity/CreateUpdate/NotificationActivityCreateNav.js",
+				"Position": "right"
+			}
+		]
+	},
 	"Caption": "(L,notification_activities)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
+						"Icons": "/SAPAssetManager/Rules/Notifications/Activity/NotificationActivityIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Activity/NotificationActivityDetailsNav.action",
+						"PreserveIconStackSpacing": true,
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Activities",
+						"QueryOptions": "$expand=Notification&$orderby=ActivitySortNumber asc",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "NotificationActivities",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"MyNotificationActivities"
+	],
 	"OnLoaded": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsActivitiesListOnLoad.js",
 	"OnReturning": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsActivitiesListOnReturn.js",
-
-	"ActionBar":
-	{
-		"Items":
-		[{
-			"Position": "right",
-			"Icon": "res://add",
-			"OnPress": "/SAPAssetManager/Rules/Notifications/Activity/CreateUpdate/NotificationActivityCreateNav.js"
-		}]
-	},
-	"Controls":
-	[{
-		"Sections":
-		[{
-			"Search":
-			{
-				"Enabled" : true,
-				"Delay": 500,
-				"MinimumCharacterThreshold": 3,
-				"Placeholder": "$(L,search)",
-				"BarcodeScanner": true
-			},
-			"Header": {
-		 		"UseTopPadding": false
-    		},
-			"ObjectCell":
-			{	
-				"PreserveIconStackSpacing": true,
-				"Icons":"/SAPAssetManager/Rules/Notifications/Activity/NotificationActivityIconImages.js",
-				"AccessoryType": "disclosureIndicator",
-                "Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
-                "Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
-                "Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsActivityListFormat.js",
-				"OnPress": "/SAPAssetManager/Actions/Notifications/Activity/NotificationActivityDetailsNav.action"
-			},
-            "Target":
-			{
-                "EntitySet" : "{{#Property:@odata.id}}/Activities",
-                "Service" : "/SAPAssetManager/Services/AssetManager.service",
-                "QueryOptions": "$expand=Notification&$orderby=ActivitySortNumber asc"
-            },
-			"_Name" : "NotificationActivities",
-			"_Type" : "Section.Type.ObjectTable"
-		}],
-		"_Type" : "Control.Type.SectionedTable"
-	}],
-	"_Type": "Page",
 	"_Name": "NotificationActivitiesListViewPage",
-	"DataSubscriptions": ["MyNotificationActivities"]
-
+	"_Type": "Page"
 }

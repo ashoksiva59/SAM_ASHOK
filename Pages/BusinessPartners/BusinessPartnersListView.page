@@ -2,47 +2,55 @@
 	"Caption": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnersCaption.js",
 	"Controls": [
 		{
-            "_Type": "Control.Type.SectionedTable",
-            "DataSubscriptions": ["Addresses", "AddressesAtWork", "EmployeeAddresses","AddressCommunications", "AddressesAtWorkComm", "EmployeeCommunications"],
+			"DataSubscriptions": [
+				"Addresses",
+				"AddressesAtWork",
+				"EmployeeAddresses",
+				"AddressCommunications",
+				"AddressesAtWorkComm",
+				"EmployeeCommunications"
+			],
 			"Sections": [
 				{
-					"_Name": "BusinessPartnersListViewSection",
-					"_Type": "Section.Type.ContactCell",
 					"ContactCell": {
+						"ActivityItems": [
+							{
+								"ActivityType": "Phone",
+								"ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerCallablePhone.js"
+							},
+							{
+								"ActivityType": "Email",
+								"ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEmail.js"
+							},
+							{
+								"ActivityType": "Message",
+								"ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerMobile.js"
+							}
+						],
+						"Description": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerAddress.js",
 						"Headline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerName.js",
-                        "Subheadline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerDescription.js",
-                        "Description": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerAddress.js",
-                        "OnPress": "/SAPAssetManager/Actions/BusinessPartners/BusinessPartnerDetailsViewNav.action",
-                        "ActivityItems": [
-                            {
-                              "ActivityType": "Phone",
-                              "ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerCallablePhone.js"
-                            },
-                            {
-                              "ActivityType": "Email",
-                              "ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEmail.js"
-                            },
-                            {
-                              "ActivityType": "Message",
-                              "ActivityValue": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerMobile.js"
-                            }
-                        ]
+						"OnPress": "/SAPAssetManager/Actions/BusinessPartners/BusinessPartnerDetailsViewNav.action",
+						"Subheadline": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerDescription.js"
 					},
 					"EmptySection": {
-                        "Caption": "$(L,no_businessPartners_available)"
-                    },
-					"Target": {
-						"EntitySet": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEntitySet.js",
-						"Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerQueryOptions.js"						
+						"Caption": "$(L,no_businessPartners_available)"
 					},
 					"Header": {
-		 				"UseTopPadding": false
-    				}
+						"UseTopPadding": false
+					},
+					"Target": {
+						"EntitySet": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerEntitySet.js",
+						"QueryOptions": "/SAPAssetManager/Rules/BusinessPartners/BusinessPartnerQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "BusinessPartnersListViewSection",
+					"_Type": "Section.Type.ContactCell"
 				}
-			]
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
 		}
 	],
-	"_Type": "Page",
-	"_Name": "BusinessPartnersListViewPage"
+	"_Name": "BusinessPartnersListViewPage",
+	"_Type": "Page"
 }

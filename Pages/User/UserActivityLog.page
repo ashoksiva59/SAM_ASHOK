@@ -1,46 +1,47 @@
 {
-    "Caption": "$(L,activity_log)",
-    "OnLoaded": "/SAPAssetManager/Rules/Log/UserLogSetting.js",
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Controls": [
-                        {
-                            "Caption": "$(L,enable_logging)",
-                            "Value": false,
-                            "OnValueChange": "/SAPAssetManager/Rules/Log/ToggleUserLogging.js",
-                            "_Name": "EnableLogSwitch",
-                            "_Type": "Control.Type.FormCell.Switch"
-                        },
-                        {
-                            "AllowMultipleSelection": false,
-                            "IsSearchEnabled": false,
-                            "Caption": "$(L,log_level)",
-                            "Value": "",
-                            "OnValueChange": "/SAPAssetManager/Rules/Log/SetUserLogLevel.js",
-                            "IsEditable": false,
-                            "PickerItems": "/SAPAssetManager/Rules/UserSupport/LogLevels.js",
-                            "_Name": "LogLevelLstPkr",
-                            "_Type": "Control.Type.FormCell.ListPicker"
-                        }
-                    ]
-                }, 
-                {
-                  "Controls": [
-                      {
-                        "Title": "$(L,send_activity_log)",
-                        "OnPress": "/SAPAssetManager/Rules/Log/SendLoggerUpdate.js",
-                        "IsVisible" : "/SAPAssetManager/Rules/Log/IsShowLogLevelButtonVisible.js",
-                        "_Type": "Control.Type.FormCell.Button",
-                        "_Name": "Send"
-                      }
-                    ]
-                }
-            ],
-            "_Name": "FormCellContainer",
-            "_Type": "Control.Type.FormCellContainer"
-        }],
-    "_Type": "Page",
-    "_Name": "UserActivityLog"
+	"Caption": "$(L,activity_log)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"Caption": "$(L,enable_logging)",
+							"OnValueChange": "/SAPAssetManager/Rules/Log/ToggleUserLogging.js",
+							"Value": false,
+							"_Name": "EnableLogSwitch",
+							"_Type": "Control.Type.FormCell.Switch"
+						},
+						{
+							"AllowMultipleSelection": false,
+							"Caption": "$(L,log_level)",
+							"IsEditable": false,
+							"IsSearchEnabled": false,
+							"OnValueChange": "/SAPAssetManager/Rules/Log/SetUserLogLevel.js",
+							"PickerItems": "/SAPAssetManager/Rules/UserSupport/LogLevels.js",
+							"_Name": "LogLevelLstPkr",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"IsVisible": "/SAPAssetManager/Rules/Log/IsShowLogLevelButtonVisible.js",
+							"OnPress": "/SAPAssetManager/Rules/Log/SendLoggerUpdate.js",
+							"TextAlignment": "center",
+							"Title": "$(L,send_activity_log)",
+							"_Name": "Send",
+							"_Type": "Control.Type.FormCell.Button"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Log/UserLogSetting.js",
+	"_Name": "UserActivityLog",
+	"_Type": "Page"
 }

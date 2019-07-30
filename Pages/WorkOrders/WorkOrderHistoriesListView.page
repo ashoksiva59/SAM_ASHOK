@@ -2,40 +2,42 @@
 	"Caption": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryListViewCaption.js",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
 			"Sections": [
 				{
-					"_Name": "WorkorderHistoryListViewSection",
-					"_Type": "Section.Type.ObjectTable",
+					"Header": {
+						"UseTopPadding": false
+					},
 					"ObjectCell": {
+						"AccessoryType": "none",
 						"Description": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryLongText.js",
-                        "Title": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDescription.js",
-                        "Subhead": "{OrderId}",
-                        "Footnote": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryStartEndDate.js",
-                        "StatusText": "#Property:HistoryPriority/#Property:PriorityDescription",
-                        "SubstatusText": "{OrderType}",
+						"Footnote": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryStartEndDate.js",
 						"OnPress": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryDetailsNav.js",
-                        "PreserveIconStackSpacing":false
+						"PreserveIconStackSpacing": false,
+						"StatusText": "#Property:HistoryPriority/#Property:PriorityDescription",
+						"Subhead": "{OrderId}",
+						"SubstatusText": "{OrderType}",
+						"Title": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDescription.js"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
 					},
 					"Target": {
 						"EntitySet": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryEntitySet.js",
-						"Service": "/SAPAssetManager/Services/AssetManager.service",
-						"QueryOptions":"/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryListViewQueryOptions.js"
+						"QueryOptions": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryListViewQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
 					},
-					"Search": {
-						"Enabled": true,
-						"Delay": 500,
-						"MinimumCharacterThreshold": 3,
-						"Placeholder": "$(L,search)",
-						"BarcodeScanner": true
-					},
-					"Header": {
-		 				"UseTopPadding": false
-    				}
+					"_Name": "WorkorderHistoryListViewSection",
+					"_Type": "Section.Type.ObjectTable"
 				}
-			]
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
 		}
 	],
-	"_Type": "Page",
-	"_Name": "WorkOrderHistoriesListViewPage"
+	"_Name": "WorkOrderHistoriesListViewPage",
+	"_Type": "Page"
 }

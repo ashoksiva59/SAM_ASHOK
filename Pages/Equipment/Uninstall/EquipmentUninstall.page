@@ -1,69 +1,70 @@
 {
-    "Caption": "$(L, dismantle_equipment)",
-    "ActionBar":
-    {
-        "Items":
-        [{
-            "Position": "right",
-            "SystemItem": "/SAPAssetManager/Rules/Common/Platform/DoneIcon.js",
-            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
-            "OnPress": "/SAPAssetManager/Actions/Equipment/Uninstall/EquipmentUninstallRequiredFields.action"
-        },
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Actions/Equipment/Uninstall/EquipmentUninstallRequiredFields.action",
+				"Position": "right",
+				"SystemItem": "/SAPAssetManager/Rules/Common/Platform/DoneIcon.js",
+				"Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js"
+			}
+		]
+	},
+	"Caption": "$(L, dismantle_equipment)",
+	"Controls": [
 		{
-			"Position": "left",
-			"SystemItem": "Cancel",
-			"OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
-		}]
-    },
-    "Controls":
-    [{
-        "Sections":
-        [{
-            "Controls":
-            [{
-                "Caption" : "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallCaption.js",
-                "Value" : "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallValue.js",
-                "IsEditable": false,
-                "_Name": "SuperiorEquipment",
-                "_Type": "Control.Type.FormCell.SimpleProperty"
-            }]
-        },
-        {
-            "Controls":
-            [{
-                "AllowMultipleSelection": true,
-                "Caption": "$(L, equipment)",
-                "Search": { 
-                    "Enabled": true,
-                    "Delay": 500,
-                    "MinimumCharacterThreshold": 3,
-                    "Placeholder": "$(L, search)",
-                    "BarcodeScanner": true
-                },
-                "PickerItems":
-                {
-                    "ObjectCell":
-                    {
-                        "PreserveIconStackSpacing": false,
-                        "Title" : "{{#Property:EquipDesc}}",
-                        "Subhead" : "{{#Property:WorkCenter_Nav/#Property:WorkCenterName}} ({{#Property:WorkCenter_Nav/#Property:PlantId}}), {{#Property:WorkCenter_Nav/#Property:ExternalWorkCenterId}}",
-                        "Footnote" : "{{#Property:EquipId}}"
-                    },
-                    "ReturnValue" : "{EquipId}",
-                    "Target":
-                    {
-                        "EntitySet" : "MyEquipments",
-                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallQueryOpts.js"
-                    }
-                },
-                "_Name": "EquipmentPicker",
-                "_Type": "Control.Type.FormCell.ListPicker"
-            }]
-        }],
-        "_Name": "FormCellContainer",
-        "_Type": "Control.Type.FormCellContainer"
-    }],
-    "_Type": "Page",
-    "_Name": "EquipmentUninstallPage"
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"Caption": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallCaption.js",
+							"IsEditable": false,
+							"Value": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallValue.js",
+							"_Name": "SuperiorEquipment",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"AllowMultipleSelection": true,
+							"Caption": "$(L, equipment)",
+							"PickerItems": {
+								"ObjectCell": {
+									"Footnote": "{{#Property:EquipId}}",
+									"PreserveIconStackSpacing": false,
+									"Subhead": "{{#Property:WorkCenter_Nav/#Property:WorkCenterName}} ({{#Property:WorkCenter_Nav/#Property:PlantId}}), {{#Property:WorkCenter_Nav/#Property:ExternalWorkCenterId}}",
+									"Title": "{{#Property:EquipDesc}}"
+								},
+								"ReturnValue": "{EquipId}",
+								"Target": {
+									"EntitySet": "MyEquipments",
+									"QueryOptions": "/SAPAssetManager/Rules/Equipment/Uninstall/UninstallQueryOpts.js",
+									"Service": "/SAPAssetManager/Services/AssetManager.service"
+								}
+							},
+							"Search": {
+								"BarcodeScanner": true,
+								"Delay": 500,
+								"Enabled": true,
+								"MinimumCharacterThreshold": 3,
+								"Placeholder": "$(L, search)"
+							},
+							"_Name": "EquipmentPicker",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "EquipmentUninstallPage",
+	"_Type": "Page"
 }

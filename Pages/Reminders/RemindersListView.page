@@ -1,52 +1,56 @@
 {
-	"_Type": "Page",
-	"_Name": "RemindersListViewPage",
-	"OnLoaded": "/SAPAssetManager/Rules/Reminders/RemindersCaption.js",
-	"OnReturning": "/SAPAssetManager/Rules/Reminders/RemindersCaption.js",
 	"ActionBar": {
 		"Items": [
 			{
-				"Position": "right",
-            	"Icon": "res://add",
-				"OnPress": "/SAPAssetManager/Rules/Reminders/ReminderCreateNav.js"
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Reminders/ReminderCreateNav.js",
+				"Position": "right"
 			}
 		]
 	},
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"DataSubscriptions": ["UserPreferences"],
+			"DataSubscriptions": [
+				"UserPreferences"
+			],
 			"Sections": [
 				{
-					"_Type": "Section.Type.ObjectTable",
-					"Search": {
-						"Enabled" : "/SAPAssetManager/Rules/Reminders/ReminderSearchEnabled.js",
-						"Delay": 500,
-						"MinimumCharacterThreshold": 3,
-						"Placeholder": "$(L,search)",
-						"BarcodeScanner": true
-					},
-					"Header": {
-		 				"UseTopPadding": false
-					},
 					"EmptySection": {
 						"Caption": "$(L,no_reminders_available)"
 					},
+					"Header": {
+						"UseTopPadding": false
+					},
 					"ObjectCell": {
-						"PreserveIconStackSpacing": true,
-						"Icons": "/SAPAssetManager/Rules/Reminders/RemindersIconImages.js",
-						"Title": "{PreferenceName}",
-						"Subhead": "/SAPAssetManager/Rules/Reminders/ReminderFootnote.js",
 						"AccessoryType": "detailButton",
-						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Reminders/ReminderUpdateNav.js"
+						"Icons": "/SAPAssetManager/Rules/Reminders/RemindersIconImages.js",
+						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Reminders/ReminderUpdateNav.js",
+						"PreserveIconStackSpacing": true,
+						"Subhead": "/SAPAssetManager/Rules/Reminders/ReminderFootnote.js",
+						"Title": "{PreferenceName}"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": "/SAPAssetManager/Rules/Reminders/ReminderSearchEnabled.js",
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
 					},
 					"Target": {
 						"EntitySet": "UserPreferences",
-						"Service": "/SAPAssetManager/Services/AssetManager.service",
-						"QueryOptions": "/SAPAssetManager/Rules/Reminders/RemindersQueryOptions.js"
-					}
+						"QueryOptions": "/SAPAssetManager/Rules/Reminders/RemindersQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable0",
+					"_Type": "Section.Type.ObjectTable"
 				}
-			]
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Reminders/RemindersCaption.js",
+	"OnReturning": "/SAPAssetManager/Rules/Reminders/RemindersCaption.js",
+	"_Name": "RemindersListViewPage",
+	"_Type": "Page"
 }

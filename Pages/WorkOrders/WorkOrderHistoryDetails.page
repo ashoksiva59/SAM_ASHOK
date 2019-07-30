@@ -1,17 +1,12 @@
 {
-	"_Type": "Page",
-	"_Name": "WorkOrderHistoryDetailsPage",
 	"Caption": "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeader.js",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "WorkOrderHistoryDetailsSectionedTable",
 			"Sections": [
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "WorkOrderHistoryDetailsSection",
 					"Header": {
-						"Caption": "$(L,workorder_history_details)"
+						"Caption": "$(L,workorder_history_details)",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -22,7 +17,6 @@
 							"KeyName": "$(L,number)",
 							"Value": "{OrderId}"
 						},
-					
 						{
 							"KeyName": "$(L,priority)",
 							"Value": "#Property:HistoryPriority/#Property:PriorityDescription"
@@ -39,23 +33,34 @@
 							"KeyName": "$(L,end_date)",
 							"Value": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryDetailsEndDate.js"
 						}
-					]
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "WorkOrderHistoryDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				},
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "WorkOrderHistoryNotesSection",
-					"Layout": {
-						"NumberOfColumns": 1,
-                        "MinimumInteritemSpacing": 66
-					},
 					"KeyAndValues": [
 						{
 							"KeyName": "$(L, notes)",
 							"Value": "/SAPAssetManager/Rules/WorkOrders/History/WorkOrderHistoryDetailsNotes.js"
 						}
-					]
+					],
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"MaxItemCount": 1,
+					"_Name": "WorkOrderHistoryNotesSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-			]
+			],
+			"_Name": "WorkOrderHistoryDetailsSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"_Name": "WorkOrderHistoryDetailsPage",
+	"_Type": "Page"
 }

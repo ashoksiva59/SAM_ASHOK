@@ -1,317 +1,349 @@
 {
-    "Caption": "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeader.js",
-    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderDetailsOnPageLoad.js",
-    "ActionBar": {
-        "Items": [
-             {
-                "Position": "right",
-                "Icon": "res://add",
-                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderDetailsAddPopover.js"
-            },
-            {
-                "Position": "right",
-                "SystemItem": "Edit",
-                "OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrderUpdateNav.js"
-            }
-        ]
-    },
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "ObjectHeader": {
-                        "HeadlineText": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDescription.js",
-                        "Tags": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderDetailsObjectHeaderTags.js",
-                        "BodyText": "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeaderEquipmentDescription.js",
-                        "Footnote":  "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeaderFunctionLocationDescription.js",
-                        "StatusImage": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeStatusIconRule.js",
-                        "SubstatusText": "/SAPAssetManager/Rules/WorkOrders/WorkOrderPriorityFormat.js",
-                        "DetailContentContainer": {
-                            "Controls": [
-                            {
-                                "Module": "extension-Analytics",
-                                "Control": "AnalyticsViewObjHeaderExtension",
-                                "Class": "AnalyticsViewObjHeaderExtension",
-                                "_Name": "Extension",
-                                "_Type": "Control.Type.Extension",
-                                "ExtensionProperties":{  
-                                    "BusinessObjects": [{
-                                        "Target": {
-                                            "Property":"Equipment/MeasuringPoints/MeasurementDocs"
-                                        },
-                                        "ChartData": {
-                                            "KPIData": {
-                                                "metric": "{PrevReadingValue#format:/SAPAssetManager/Rules/Analytics/AnalyticsKPIValue.js}",
-                                                "units": "{UoM}",
-                                                "caption": "{PointDesc}",
-                                                "Target": {
-                                                    "Property":"Equipment/MeasuringPoints"
-                                                },
-                                                "LineChartDataSet": {
-                                                    "entries": {
-                                                        "x": "{ReadingDate#format:/SAPAssetManager/Rules/Analytics/AnalyticsSecondsFromUTCFormat.js}",
-                                                        "y": "{ReadingValue#format:/SAPAssetManager/Rules/Analytics/AnalyticsReadingValue.js}",
-                                                        "label": "{ReadingDate#format:/SAPAssetManager/Rules/Analytics/AnalyticsDateFormat.js}"
-                                                    }
-                                                }   
-                                            }
-                                        }
-                                    }],
-                                    "ViewConfig": {
-                                        "ShowKPIView": true,
-                                        "ShowChartView": false,
-                                        "KPIConfig":{   
-                                            "icon": {
-                                                "increasing": "kpiTempIcon",
-                                                "decreasing": "kpiTempIconDown"
-                                            }
-                                        },
-                                        "MarginTablet": {
-                                            "top": 32.0,
-                                            "bottom": 32.0,
-                                            "left": 0.0,
-                                            "right": 0.0
-                                        },
-                                        "MarginPhone": {
-                                            "top": 32.0,
-                                            "bottom": 32.0,
-                                            "left": 0.0,
-                                            "right": 0.0
-                                        }
-                                    }            
-                                }
-                            }],
-                            "_Name": "ObjectHeaderDetailContainer"
-                        },
-                        "Target": {
-                            "EntitySet": "{{#Property:@odata.readLink}}",
-                            "Service": "/SAPAssetManager/Services/AssetManager.service",
-                            "QueryOptions": "$expand=MobileStatus,Equipment,FunctionalLocation,Equipment/MeasuringPoints,Equipment/MeasuringPoints/MeasurementDocs,MarkedJob,WOPriority"
-                        }
-                    },
-                    "_Type": "Section.Type.ObjectHeader",
-                    "_Name": "ObjectHeaderSectionTable",
-                    "DataSubscriptions": ["MobileStatuses","Confirmations"]
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,location)"
-                    },
-                    "EmptySection": {
-                        "Caption": "$(L,no_location_available)"
-                    },
-                    "ObjectCells": [
-                        {
-                            "ObjectCell": {
-                                "AccessoryType": "/SAPAssetManager/Rules/WorkOrders/WorkOrderLocationFormat.js",
-                                "Title": "/SAPAssetManager/Rules/WorkOrders/WorkOrderLocationFormat.js",
-                                "Subhead": "/SAPAssetManager/Rules/WorkOrders/WorkOrderLocationFormat.js",
-                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrderMapNav.js",
-                                "PreserveIconStackSpacing": false
-                            }
-                        }
-                    ],
-                    "_Type": "Section.Type.ObjectTable",
-                    "_Name": "WorkOrderLocationSection"
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,operations)"
-                    },
-                    "EmptySection": {
-                        "Caption": "$(L,no_operations_available)"
-                    },
-                    "Footer": {
-                        "Caption": "$(L,see_all)",
-                        "AccessoryType": "disclosureIndicator",
-                        "FooterStyle": "attribute",
-                        "AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsCount.js",
-                        "OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationsListViewNav.action"
-                    },
-                    "MaxItemCount": 2,
-                    "ObjectCell": {
-                        "Icons": "/SAPAssetManager/Rules/Operations/OperationsListViewIconImages.js",
-                        "AccessoryType": "disclosureIndicator",
-                        "Title": "{{#Property:OperationShortText}} ({{#Property:OperationNo}})",
-                        "Footnote": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderDueDate.js",
-                        "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/Details/WorkOrderOperationDetailsNav.js",
-                        "Subhead": "{OrderId}",
-                        "StatusText": "/SAPAssetManager/Rules/MobileStatus/OperationMobileStatus.js"
-                    },
-                    "Target": {
-                        "EntitySet": "{{#Property:@odata.readLink}}/Operations",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsTableQueryOption.js"
-                    },
-                    "_Name": "OperationsObjectTable",
-                    "_Type": "Section.Type.ObjectTable",
-                    "DataSubscriptions": ["Confirmations", "MobileStatuses"]
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,equipment)"
-                    },
-                    "EmptySection": {
-                        "Caption": "$(L,no_equipment_available)"
-                    },
-                    "Footer": {
-                        "Caption": "$(L,see_all)",
-                        "AccessoryType": "disclosureIndicator",
-                        "FooterStyle": "attribute",
-                        "AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderEquipmentCount.js",
-                        "OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentListViewNav.js"
-                    },
-                    "MaxItemCount": 2,
-                    "ObjectCell": {
-                        "AccessoryType": "disclosureIndicator",
-                        "Title": "{EquipDesc}",
-                        "OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentDetailsNav.js",
-                        "PreserveIconStackSpacing": false,
-                        "Subhead": "{EquipId}"
-                    },
-                    "Target": {
-                        "EntitySet": "MyEquipments",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "$top=2&$filter=WorkOrderHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderOperation/WOHeader/any(wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderSubOperation/WorkOrderOperation/WOHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}' )"
-                    },
-                    "_Type": "Section.Type.ObjectTable"
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,functional_location)"
-                    },
-                    "EmptySection": {
-                        "Caption": "$(L,no_functional_location_available)"
-                    },
-                    "Footer": {
-                        "Caption": "$(L,see_all)",
-                        "AccessoryType": "disclosureIndicator",
-                        "FooterStyle": "attribute",
-                        "AttributeLabel": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationCount.js",
-                        "OnPress": "/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationsListViewNav.action"
-                    },
-                    "MaxItemCount": 2,
-                    "ObjectCell": {
-                        "AccessoryType": "disclosureIndicator",
-                        "Title": "{FuncLocDesc}",
-                        "Subhead": "{FuncLocId}",
-                        "OnPress":"/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationDetailsNav.action",
-                        "PreserveIconStackSpacing": false                                
-                    },
-                    "Target": {
-                        "EntitySet": "MyFunctionalLocations",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "$top=2&$filter=WorkOrderHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderOperation/WOHeader/any(wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderSubOperation/WorkOrderOperation/WOHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}')&$expand=WorkOrderHeader"
-                    },
-                    "_Type": "Section.Type.ObjectTable",
-                    "_Name": "WorkOrderFunctionalLocationSection"
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,notification)"
-                    },
-                    "EmptySection": {
-                        "Caption": "$(L,no_notifications_available)"
-                    },
-                    "ObjectCell":
-                    {
-                        "Icons":"/SAPAssetManager/Rules/Notifications/ListView/NotificationListViewIconImages.js",
-                        "Title": "{NotificationDescription}",
-                        "Subhead": "{{#Property:NotificationNumber}} - {{#Property:NotificationType}}",
-                        "Footnote": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
-                        "StatusText": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
-                        "SubstatusText": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
-                        "AccessoryType": "disclosureIndicator",
-                        "OnPress" : "/SAPAssetManager/Actions/Notifications/NotificationDetailsNav.action"
-                    },
-                    "Target":
-                    {
-                        "EntitySet" : "{{#Property:@odata.readLink}}/Notification",
-                        "Service" : "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions" : "/SAPAssetManager/Rules/Notifications/NotificationsListViewQueryOption.js"
-                    },
-                    "_Name": "NotificationsList",
-                    "_Type": "Section.Type.ObjectTable",
-                    "DataSubscriptions": ["MyNotificationHeaders"]
-                },
-                {
-                    "SimplePropertyCells": [
-                        {
-                            "SimplePropertyCell": {
-                                "AccessoryType": "disclosureIndicator",
-                                "KeyName": "$(L,parts)",
-                                "Value": "/SAPAssetManager/Rules/Parts/PartsCount.js",
-                                "OnPress": "/SAPAssetManager/Actions/Parts/PartsListViewNav.action"
-                            }
-                        },
-                        {
-                            "SimplePropertyCell": {
-                                "AccessoryType": "disclosureIndicator",
-                                "KeyName": "$(L,documents)",
-                                "Value": "/SAPAssetManager/Rules/Documents/Count/DocumentsBDSCount.js",
-                                "OnPress": "/SAPAssetManager/Actions/Documents/DocumentsBDSListNav.action"
-
-                            }
-                        },
-                        {
-                            "SimplePropertyCell": {
-                                "AccessoryType": "disclosureIndicator",
-                                "KeyName": "$(L,notes)",
-                                "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
-                                "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
-                            }
-                        },
-                        {
-                            "SimplePropertyCell": {
-                                "AccessoryType": "disclosureIndicator",
-                                "KeyName": "$(L,related_notifications)",
-                                "Value": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationsCount.js",
-                                "OnPress": "/SAPAssetManager/Actions/Notifications/RelatedNotifications/RelatedNotificationsListViewNav.action"
-                            }
-                        },
-                        {
-                            "SimplePropertyCell": {
-                                "AccessoryType": "/SAPAssetManager/Rules/WorkOrders/Details/Confirmations/ConfirmationsSectionAccessory.js",
-                                "KeyName": "/SAPAssetManager/Rules/WorkOrders/Details/Confirmations/ConfirmationsSectionTitle.js",
-                                "Value": "/SAPAssetManager/Rules/WorkOrders/Details/Confirmations/ConfirmationsSectionCount.js",
-                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Details/Confirmations/ConfirmationsSectionOnPress.js"
-                            }
-                        }
-                    ],
-                    "Layout": {
-                        "NumberOfColumns": 2,
-                        "MinimumInteritemSpacing": 66
-                    },
-                    "_Type": "Section.Type.SimplePropertyCollection",
-                    "DataSubscriptions": ["MyWorkOrderComponents", "Documents", "Confirmations"] 
-                }
-            ],
-            "_Type": "Control.Type.SectionedTable",
-            "_Name": "SectionedTable"
-        }
-    ],
-    "ToolBar": {
-        "Controls": [
-            {
-                "_Name": "FlexibleSpaceLeftTbI",
-                "_Type": "Control.Type.ToolbarItem",
-                "SystemItem": "FlexibleSpace"
-            },
-            {
-                "_Name": "IssuePartTbI",
-                "_Type": "Control.Type.ToolbarItem",
-                "Enabled" : "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderEnableMobileStatus.js",
-                "Caption": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderMobileStatusToolBarCaption.js",
-                "OnPress": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderChangeStatusPopover.js"
-            },
-            {
-                "_Name": "FlexibleSpaceRightTbI",
-                "_Type": "Control.Type.ToolbarItem",
-                "SystemItem": "FlexibleSpace"
-            }
-        ]
-    },
-    "_Type": "Page",
-    "_Name": "WorkOrderDetailsPage",
-    "DataSubscriptions": ["MyWorkOrderOperations","MyWorkOrderDocuments","MobileStatuses"]
+	"ActionBar": {
+		"Items": [
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderDetailsAddPopover.js",
+				"Position": "right"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrderUpdateNav.js",
+				"Position": "right",
+				"SystemItem": "Edit"
+			}
+		]
+	},
+	"Caption": "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeader.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"DataSubscriptions": [
+						"MobileStatuses",
+						"Confirmations"
+					],
+					"ObjectHeader": {
+						"BodyText": "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeaderEquipmentDescription.js",
+						"DetailContentContainer": {
+							"Controls": [
+								{
+									"Class": "AnalyticsViewObjHeaderExtension",
+									"Control": "AnalyticsViewObjHeaderExtension",
+									"ExtensionProperties": {
+										"BusinessObjects": [
+											{
+												"ChartData": {
+													"KPIData": {
+														"LineChartDataSet": {
+															"entries": {
+																"label": "{ReadingDate#format:/SAPAssetManager/Rules/Analytics/AnalyticsDateFormat.js}",
+																"x": "{ReadingDate#format:/SAPAssetManager/Rules/Analytics/AnalyticsSecondsFromUTCFormat.js}",
+																"y": "{ReadingValue#format:/SAPAssetManager/Rules/Analytics/AnalyticsReadingValue.js}"
+															}
+														},
+														"Target": {
+															"Property": "Equipment/MeasuringPoints"
+														},
+														"caption": "{PointDesc}",
+														"metric": "{PrevReadingValue#format:/SAPAssetManager/Rules/Analytics/AnalyticsKPIValue.js}",
+														"units": "{UoM}"
+													}
+												},
+												"Target": {
+													"Property": "Equipment/MeasuringPoints/MeasurementDocs"
+												}
+											}
+										],
+										"ViewConfig": {
+											"KPIConfig": {
+												"icon": {
+													"decreasing": "kpiTempIconDown",
+													"increasing": "kpiTempIcon"
+												}
+											},
+											"MarginPhone": {
+												"bottom": 32,
+												"left": 0,
+												"right": 0,
+												"top": 32
+											},
+											"MarginTablet": {
+												"bottom": 32,
+												"left": 0,
+												"right": 0,
+												"top": 32
+											},
+											"ShowChartView": false,
+											"ShowKPIView": true
+										}
+									},
+									"Module": "extension-Analytics",
+									"_Name": "Extension",
+									"_Type": "Control.Type.Extension"
+								}
+							],
+							"_Name": "ObjectHeaderDetailContainer"
+						},
+						"Footnote": "/SAPAssetManager/Rules/WorkOrders/Header/WorkOrderHeaderFunctionLocationDescription.js",
+						"HeadlineText": "/SAPAssetManager/Rules/WorkOrders/WorkOrderDescription.js",
+						"StatusImage": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeStatusIconRule.js",
+						"SubstatusText": "/SAPAssetManager/Rules/WorkOrders/WorkOrderPriorityFormat.js",
+						"Tags": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderDetailsObjectHeaderTags.js",
+						"Target": {
+							"EntitySet": "{{#Property:@odata.readLink}}",
+							"QueryOptions": "$expand=MobileStatus,Equipment,FunctionalLocation,Equipment/MeasuringPoints,Equipment/MeasuringPoints/MeasurementDocs,MarkedJob,WOPriority",
+							"Service": "/SAPAssetManager/Services/AssetManager.service"
+						}
+					},
+					"_Name": "ObjectHeaderSectionTable",
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_location_available)"
+					},
+					"Header": {
+						"Caption": "$(L,location)",
+						"UseTopPadding": true
+					},
+					"ObjectCells": [
+						{
+							"ObjectCell": {
+								"AccessoryType": "none",
+								"PreserveIconStackSpacing": false,
+								"Subhead": "/SAPAssetManager/Rules/WorkOrders/WorkOrderLocationFormat.js",
+								"Title": "/SAPAssetManager/Rules/WorkOrders/WorkOrderLocationFormat.js"
+							}
+						}
+					],
+					"_Name": "WorkOrderLocationSection",
+					"_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"DataSubscriptions": [
+						"Confirmations",
+						"MobileStatuses"
+					],
+					"EmptySection": {
+						"Caption": "$(L,no_operations_available)"
+					},
+					"Footer": {
+						"AccessoryType": "disclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsCount.js",
+						"Caption": "$(L,see_all)",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/WorkOrderOperationsListViewNav.action",
+						"UseBottomPadding": true
+					},
+					"Header": {
+						"Caption": "$(L,operations)",
+						"UseTopPadding": true
+					},
+					"MaxItemCount": 2,
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Footnote": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderDueDate.js",
+						"Icons": "/SAPAssetManager/Rules/Operations/OperationsListViewIconImages.js",
+						"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/Details/WorkOrderOperationDetailsNav.js",
+						"StatusText": "/SAPAssetManager/Rules/MobileStatus/OperationMobileStatus.js",
+						"Subhead": "{OrderId}",
+						"Title": "{{#Property:OperationShortText}} ({{#Property:OperationNo}})"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/Operations",
+						"QueryOptions": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsTableQueryOption.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "OperationsObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_equipment_available)"
+					},
+					"Footer": {
+						"AccessoryType": "disclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderEquipmentCount.js",
+						"Caption": "$(L,see_all)",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentListViewNav.js",
+						"UseBottomPadding": true
+					},
+					"Header": {
+						"Caption": "$(L,equipment)",
+						"UseTopPadding": true
+					},
+					"MaxItemCount": 2,
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentDetailsNav.js",
+						"PreserveIconStackSpacing": false,
+						"Subhead": "{EquipId}",
+						"Title": "{EquipDesc}"
+					},
+					"Target": {
+						"EntitySet": "MyEquipments",
+						"QueryOptions": "$top=2&$filter=WorkOrderHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderOperation/WOHeader/any(wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderSubOperation/WorkOrderOperation/WOHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}' )",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable0",
+					"_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_functional_location_available)"
+					},
+					"Footer": {
+						"AccessoryType": "disclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationCount.js",
+						"Caption": "$(L,see_all)",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationsListViewNav.action",
+						"UseBottomPadding": true
+					},
+					"Header": {
+						"Caption": "$(L,functional_location)",
+						"UseTopPadding": true
+					},
+					"MaxItemCount": 2,
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"OnPress": "/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationDetailsNav.action",
+						"PreserveIconStackSpacing": false,
+						"Subhead": "{FuncLocId}",
+						"Title": "{FuncLocDesc}"
+					},
+					"Target": {
+						"EntitySet": "MyFunctionalLocations",
+						"QueryOptions": "$top=2&$filter=WorkOrderHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderOperation/WOHeader/any(wo: wo/OrderId eq '{{#Property:OrderId}}' ) or WorkOrderSubOperation/WorkOrderOperation/WOHeader/any( wo: wo/OrderId eq '{{#Property:OrderId}}')&$expand=WorkOrderHeader",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "WorkOrderFunctionalLocationSection",
+					"_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"DataSubscriptions": [
+						"MyNotificationHeaders"
+					],
+					"EmptySection": {
+						"Caption": "$(L,no_notifications_available)"
+					},
+					"Header": {
+						"Caption": "$(L,notification)",
+						"UseTopPadding": true
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
+						"Icons": "/SAPAssetManager/Rules/Notifications/ListView/NotificationListViewIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/NotificationDetailsNav.action",
+						"StatusText": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
+						"Subhead": "{{#Property:NotificationNumber}} - {{#Property:NotificationType}}",
+						"SubstatusText": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsListViewFormat.js",
+						"Title": "{NotificationDescription}"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/Notification",
+						"QueryOptions": "/SAPAssetManager/Rules/Notifications/NotificationsListViewQueryOption.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "NotificationsList",
+					"_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"DataSubscriptions": [
+						"MyWorkOrderComponents",
+						"Documents",
+						"Confirmations"
+					],
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 2
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,parts)",
+								"OnPress": "/SAPAssetManager/Actions/Parts/PartsListViewNav.action",
+								"Value": "/SAPAssetManager/Rules/Parts/PartsCount.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,documents)",
+								"OnPress": "/SAPAssetManager/Actions/Documents/DocumentsBDSListNav.action",
+								"Value": "/SAPAssetManager/Rules/Documents/Count/DocumentsBDSCount.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,notes)",
+								"OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js",
+								"Value": "/SAPAssetManager/Rules/Notes/NotesCount.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,related_notifications)",
+								"OnPress": "/SAPAssetManager/Actions/Notifications/RelatedNotifications/RelatedNotificationsListViewNav.action",
+								"Value": "/SAPAssetManager/Rules/Notifications/RelatedNotifications/RelatedNotificationsCount.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "/SAPAssetManager/Rules/WorkOrders/Details/Confirmations/ConfirmationsSectionTitle.js",
+								"Value": "/SAPAssetManager/Rules/WorkOrders/Details/Confirmations/ConfirmationsSectionCount.js"
+							}
+						}
+					],
+					"_Name": "SectionSimplePropertyCollection0",
+					"_Type": "Section.Type.SimplePropertyCollection"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"MyWorkOrderOperations",
+		"MyWorkOrderDocuments",
+		"MobileStatuses"
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Details/WorkOrderDetailsOnPageLoad.js",
+	"ToolBar": {
+		"Controls": [
+			{
+				"Clickable": true,
+				"Enabled": true,
+				"SystemItem": "FlexibleSpace",
+				"Visible": true,
+				"_Name": "FlexibleSpaceLeftTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			},
+			{
+				"Caption": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderMobileStatusToolBarCaption.js",
+				"Clickable": true,
+				"Enabled": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderEnableMobileStatus.js",
+				"OnPress": "/SAPAssetManager/Rules/WorkOrders/MobileStatus/WorkOrderChangeStatusPopover.js",
+				"Visible": true,
+				"_Name": "IssuePartTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			},
+			{
+				"Clickable": true,
+				"Enabled": true,
+				"SystemItem": "FlexibleSpace",
+				"Visible": true,
+				"_Name": "FlexibleSpaceRightTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			}
+		]
+	},
+	"_Name": "WorkOrderDetailsPage",
+	"_Type": "Page"
 }

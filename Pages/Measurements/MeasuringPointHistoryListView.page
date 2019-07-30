@@ -1,82 +1,90 @@
 {
-    "Caption": "$(L,measuring_point_reading_history)",
-    "Controls": [
-        {
-            "Sections":
-            [{
-                "Search":
-                {
-                    "Enabled": true,
-                    "Delay": 500,
-                    "MinimumCharacterThreshold": 3,
-                    "Placeholder": "$(L,search_reading)"
-                },
-                "Header":
-                {
-                    "Grid":
-                    {
-                        "Items":
-                        [
-                        {
-                            "Text": " "
-                        },
-                        {
-                            "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValueAndReadingDifferenceCaption.js"
-                        },
-                        {
-                            "Text": "$(L, date)"
-                        },
-                        {
-                            "Text": "$(L, time)"
-                        },
-                        {
-                            "Text": "$(L, read_by)"
-                        }]
-                    }
-                },
-                "Row":
-                {
-                    "Layout":
-                    {
-                        "ColumnWidthPercentage": [
-                            0.02,
-                            0.3,
-                            0.2,
-                            0.2,
-                            -1
-                        ]
-                    },
-                    "Items":
-                    [{
-                        "Image":"/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValueIsLocal.js"
-                    },
-                    {
-                        "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointReadingValueAndReadingDifference.js"
-                    },
-                    {
-                        "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingDate.js"
-                    },
-                    {
-                        "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingTime.js"
-                    },
-                    {
-                        "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadBy.js"
-                    }],
-                    "AccessoryType": "disclosureIndicator",
-                    "OnPress": "/SAPAssetManager/Actions/Measurements/MeasurementDocumentDetailsNav.action"
-                },
-                "Target":
-                {
-                    "EntitySet": "MeasurementDocuments",
-                    "QueryOptions": "$select=Point,MeasurementDocNum,CodeGroup,ReadingDate,ReadingTime,HasReadingValue,ReadingValue,UOM,ValuationCode,CodeShortText,ShortText,ReadBy,IsCounterReading,CounterReadingDifference,MeasuringPoint/PointDesc,MeasuringPoint/CharName,MeasuringPoint/CharDescription,MeasuringPoint/IsCounter,MeasuringPoint/UoM,MeasuringPoint/CodeGroup,MeasuringPoint/CatalogType,MeasuringPoint/CounterOverflow,MeasuringPoint/PrevReadingValue,MeasuringPoint/IsCounter,MeasuringPoint/IsCounterOverflow,MeasuringPoint/IsReverse,MeasuringPoint/IsLowerRange,MeasuringPoint/IsUpperRange,MeasuringPoint/IsCodeSufficient,MeasuringPoint/LowerRange,MeasuringPoint/UpperRange,MeasuringPoint/Decimal&$expand=MeasuringPoint&$filter=Point eq '{{#Property:Point}}'&$orderby=ReadingTimestamp desc",
-                    "Service": "/SAPAssetManager/Services/AssetManager.service"
-                },
-                "_Type": "Section.Type.GridTable",
-                "_Name": "MeasurementDocumentsList"
-            }],
-            "_Type": "Control.Type.SectionedTable"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "MeasuringPointHistoryListViewPage"
+	"Caption": "$(L,measuring_point_reading_history)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Grid": {
+							"Items": [
+								{
+									"NumberOfLines": 1,
+									"Text": " "
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValueAndReadingDifferenceCaption.js"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L, date)"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L, time)"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L, read_by)"
+								}
+							]
+						},
+						"UseTopPadding": true
+					},
+					"Row": {
+						"AccessoryType": "disclosureIndicator",
+						"Items": [
+							{
+								"Image": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValueIsLocal.js",
+								"NumberOfLines": 1
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointReadingValueAndReadingDifference.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingDate.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingTime.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadBy.js"
+							}
+						],
+						"Layout": {
+							"ColumnWidthPercentage": [
+								0.02,
+								0.3,
+								0.2,
+								0.2,
+								-1
+							]
+						},
+						"OnPress": "/SAPAssetManager/Actions/Measurements/MeasurementDocumentDetailsNav.action"
+					},
+					"Search": {
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search_reading)"
+					},
+					"Target": {
+						"EntitySet": "MeasurementDocuments",
+						"QueryOptions": "$select=Point,MeasurementDocNum,CodeGroup,ReadingDate,ReadingTime,HasReadingValue,ReadingValue,UOM,ValuationCode,CodeShortText,ShortText,ReadBy,IsCounterReading,CounterReadingDifference,MeasuringPoint/PointDesc,MeasuringPoint/CharName,MeasuringPoint/CharDescription,MeasuringPoint/IsCounter,MeasuringPoint/UoM,MeasuringPoint/CodeGroup,MeasuringPoint/CatalogType,MeasuringPoint/CounterOverflow,MeasuringPoint/PrevReadingValue,MeasuringPoint/IsCounter,MeasuringPoint/IsCounterOverflow,MeasuringPoint/IsReverse,MeasuringPoint/IsLowerRange,MeasuringPoint/IsUpperRange,MeasuringPoint/IsCodeSufficient,MeasuringPoint/LowerRange,MeasuringPoint/UpperRange,MeasuringPoint/Decimal&$expand=MeasuringPoint&$filter=Point eq '{{#Property:Point}}'&$orderby=ReadingTimestamp desc",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "MeasurementDocumentsList",
+					"_Type": "Section.Type.GridTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "MeasuringPointHistoryListViewPage",
+	"_Type": "Page"
 }

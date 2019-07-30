@@ -1,57 +1,59 @@
 {
+	"ActionBar": {
+		"Items": [
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Task/CreateUpdate/NotificationTaskCreateNav.js",
+				"Position": "right"
+			}
+		]
+	},
 	"Caption": "$(L,notification_tasks)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"DataSubscriptions": [
+						"MobileStatuses"
+					],
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"Icons": "/SAPAssetManager/Rules/Notifications/Task/NotificationTaskIconImages.js",
+						"OnPress": "/SAPAssetManager/Actions/Notifications/Task/NotificationTaskDetailsNav.action",
+						"PreserveIconStackSpacing": true,
+						"StatusText": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
+						"Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.id}}/Tasks",
+						"QueryOptions": "/SAPAssetManager/Rules/Notifications/Task/NotificationTasksListViewQueryOption.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "NotificationTasks",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"MyNotificationTasks"
+	],
 	"OnLoaded": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsTaskListViewOnLoad.js",
 	"OnReturning": "/SAPAssetManager/Rules/Notifications/ListView/NotificationsTaskListOnReturn.js",
-
-	"ActionBar":
-	{
-		"Items":
-		[{
-			"Position": "right",
-			"Icon": "res://add",
-			"OnPress": "/SAPAssetManager/Rules/Notifications/Task/CreateUpdate/NotificationTaskCreateNav.js"
-		}]
-	},
-	"Controls":
-	[{
-		"Sections":
-		[{
-			"Search":
-			{
-				"Enabled" : true,
-				"Delay": 500,
-				"MinimumCharacterThreshold": 3,
-				"Placeholder": "$(L,search)",
-				"BarcodeScanner": true
-			},
-			"Header": {
-		 		"UseTopPadding": false
-    		},
-			"ObjectCell":
-			{	
-				"PreserveIconStackSpacing": true,
-				"Icons":"/SAPAssetManager/Rules/Notifications/Task/NotificationTaskIconImages.js",
-				"AccessoryType": "disclosureIndicator",
-                "Title": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
-                "Subhead": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
-                "Footnote": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
-				"StatusText" : "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsTaskListFormat.js",
-				"OnPress": "/SAPAssetManager/Actions/Notifications/Task/NotificationTaskDetailsNav.action"
-			},
-            "Target":
-			{
-                "EntitySet" : "{{#Property:@odata.id}}/Tasks",
-                "Service" : "/SAPAssetManager/Services/AssetManager.service",
-                "QueryOptions": "/SAPAssetManager/Rules/Notifications/Task/NotificationTasksListViewQueryOption.js"
-            },
-			"_Name" : "NotificationTasks",
-			"_Type" : "Section.Type.ObjectTable",
-			"DataSubscriptions": ["MobileStatuses"]
-
-		}],
-		"_Type" : "Control.Type.SectionedTable"
-	}],
-	"_Type": "Page",
 	"_Name": "NotificationTasksListViewPage",
-	"DataSubscriptions": ["MyNotificationTasks"]
+	"_Type": "Page"
 }

@@ -1,38 +1,39 @@
 {
 	"Caption": "$(L,sync_errors)",
-	"Controls":
-	[{
-		"Sections":
-		[{
-			"Search":
-			{
-				"Enabled" : true,
-				"Delay": 500,
-				"MinimumCharacterThreshold": 3,
-				"Placeholder": "$(L,search)"
-			},
-			"Header": {
-		 		"UseTopPadding": false
-    		},
-			"ObjectCell":
-			{
-        		"AccessoryType": "disclosureIndicator",
-				"Title":  "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveMessage.js",
-				"Subhead": "{HTTPStatusCode}",
-        		"Description":"{RequestURL}",
-				"OnPress" : "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveDetailsNav.js",
-				"PreserveIconStackSpacing":false				
-			},
-			"Target":
-			{
-				"EntitySet" : "ErrorArchive",
-				"Service" : "/SAPAssetManager/Services/AssetManager.service",
-				"QueryOptions":""
-			},
-			"_Type" : "Section.Type.ObjectTable"
-		}],
-		"_Type" : "Control.Type.SectionedTable"
-	}],
-	"_Type": "Page",
-	"_Name": "ErrorArchivePage"
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "disclosureIndicator",
+						"Description": "{RequestURL}",
+						"OnPress": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveDetailsNav.js",
+						"PreserveIconStackSpacing": false,
+						"Subhead": "{HTTPStatusCode}",
+						"Title": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveMessage.js"
+					},
+					"Search": {
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "ErrorArchive",
+						"QueryOptions": "",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable0",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "ErrorArchivePage",
+	"_Type": "Page"
 }

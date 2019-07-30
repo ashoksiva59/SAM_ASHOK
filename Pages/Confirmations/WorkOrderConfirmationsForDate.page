@@ -1,107 +1,123 @@
 {
-    "Caption": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationsCountTitle.js",
-    "OnReturning": "/SAPAssetManager/Rules/Confirmations/WorkOrderDetails/OnReturning.js",
-    "OnLoaded": "/SAPAssetManager/Rules/Confirmations/WorkOrderConfirmationsForDateOnLoaded.js",
-    "ActionBar": {
+	"ActionBar": {
 		"Items": [
-            {
-                "Position": "right",
-                "Icon": "res://add",
-                "OnPress": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationCreateFromWONav.js"
-            }
-        ]
-    },
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "ObjectHeader": {
-                        "HeadlineText": "{{#Property:OrderDescription}}",
-                        "Subhead": "{{#Property:OrderId}}"
-                    },
-                    "_Type": "Section.Type.ObjectHeader",
-                    "_Name": "ObjectHeaderSectionTable"
-                },
-                {
-                    "_Name": "GridTableSection",
-                    "_Type": "Section.Type.GridTable",
-                    "Header": {
-                        "Grid": {
-                            "Items": [
-                                {
-                                    "Text": " "
-                                },
-                                {
-                                    "Text": "$(L,operation)"
-                                },
-                                {
-                                    "Text": "$(L,activity_type)"
-                                },
-                                {
-                                    "Text": "$(L,start_time)"
-                                },
-                                {
-                                    "Text": "$(L,end_time)"
-                                },
-                                {
-                                    "Text": "$(L,duration)",
-                                    "TextAlignment": "right"
-                                }
-                            ]
-                        }
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/ConfirmationCreateFromWONav.js",
+				"Position": "right"
+			}
+		]
+	},
+	"Caption": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationsCountTitle.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "{{#Property:OrderDescription}}",
+						"Subhead": "{{#Property:OrderId}}"
 					},
-                    "Row": {
-                        "Layout": {
-                            "ColumnWidth": [
-                                15,
-                                -1,
-                                95,
-                                95,
-                                95,
-                                70
-                            ]
-                        },
-                        "Items": [
-                            {
-                                "Image": "/SAPAssetManager/Rules/Confirmations/WorkOrderDetails/ConfirmationSyncImage.js"
-                            },
-                            {
-                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationOperationDescription.js"
-                            },
-                            {
-                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationActivityType.js"
-                            },
-                            {
-                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationStartTimeDetails.js"
-                            },
-                            {
-                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationEndTimeDetails.js"
-                            },
-                            {
-                                "Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationFormattedActualDuration.js",
-                                "TextAlignment": "right"
-                            }
-                        ],
-                        "AccessoryType": "disclosureIndicator",
-                        "OnPress": "/SAPAssetManager/Actions/Confirmations/ConfirmationDetailsNav.action"
-                    },
-                    "Footer": {
-                        "AttributeLabel": "/SAPAssetManager/Rules/Confirmations/ConfirmationTotalDuration.js",
-                        "AccessoryType": "none",
-                        "FooterStyle": "attribute"
-                    },
-                    "Target": {
-                        "EntitySet": "Confirmations",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "/SAPAssetManager/Rules/Confirmations/ListView/WorkOrderConfirmationsQueryOptions.js"
-                    }
-                }
-            ],
-            "_Type": "Control.Type.SectionedTable",
-            "_Name": "TimeEntriesSection"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "WorkOrderConfirmationsForDate",
-    "DataSubscriptions": ["Confirmations", "ConfirmationOverviewRows"]
+					"_Name": "ObjectHeaderSectionTable",
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"Footer": {
+						"AttributeLabel": "/SAPAssetManager/Rules/Confirmations/ConfirmationTotalDuration.js",
+						"FooterStyle": "attribute",
+						"UseBottomPadding": true
+					},
+					"Header": {
+						"Grid": {
+							"Items": [
+								{
+									"NumberOfLines": 1,
+									"Text": " "
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L,operation)"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L,activity_type)"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L,start_time)"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L,end_time)"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L,duration)",
+									"TextAlignment": "right"
+								}
+							]
+						},
+						"UseTopPadding": true
+					},
+					"Row": {
+						"AccessoryType": "disclosureIndicator",
+						"Items": [
+							{
+								"Image": "/SAPAssetManager/Rules/Confirmations/WorkOrderDetails/ConfirmationSyncImage.js",
+								"NumberOfLines": 1
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationOperationDescription.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationActivityType.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationStartTimeDetails.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationEndTimeDetails.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Confirmations/ListView/ConfirmationFormattedActualDuration.js",
+								"TextAlignment": "right"
+							}
+						],
+						"Layout": {
+							"ColumnWidth": [
+								15,
+								-1,
+								95,
+								95,
+								95,
+								70
+							]
+						},
+						"OnPress": "/SAPAssetManager/Actions/Confirmations/ConfirmationDetailsNav.action"
+					},
+					"Target": {
+						"EntitySet": "Confirmations",
+						"QueryOptions": "/SAPAssetManager/Rules/Confirmations/ListView/WorkOrderConfirmationsQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "GridTableSection",
+					"_Type": "Section.Type.GridTable"
+				}
+			],
+			"_Name": "TimeEntriesSection",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"Confirmations",
+		"ConfirmationOverviewRows"
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Confirmations/WorkOrderConfirmationsForDateOnLoaded.js",
+	"OnReturning": "/SAPAssetManager/Rules/Confirmations/WorkOrderDetails/OnReturning.js",
+	"_Name": "WorkOrderConfirmationsForDate",
+	"_Type": "Page"
 }

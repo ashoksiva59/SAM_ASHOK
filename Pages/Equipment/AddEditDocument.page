@@ -1,52 +1,52 @@
 {
-    "Caption": "/SAPAssetManager/Rules/Equipment/AddEditDocumentCaption.js",
-    "ActionBar": {
-        "Items": [
-            {
-                "Position": "left",
-                "SystemItem": "Cancel",
-                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
-            },
-            {
-                "Position": "right",
-                "SystemItem": "/SAPAssetManager/Rules/Common/Platform/DoneIcon.js",
-                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
-                "OnPress": "/SAPAssetManager/Actions/Equipment/AddEditDocument.action"
-            }
-        ]
-    },
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Controls": [
-                        {
-                            "PlaceHolder": "$(L,attachment_description)",
-                            "Value": "",
-                            "_Name": "AttachmentDescription",
-                            "IsAutoResizing": true,
-                            "_Type": "Control.Type.FormCell.Note"
-                        },
-                        {
-                            "_Name": "Attachment",
-                            "_Type": "Control.Type.FormCell.Attachment",
-                            "AttachmentTitle": "$(L,attached_files)",
-                            "AttachmentAddTitle": "$(L,add)",
-                            "AttachmentActionType": [
-                                "AddPhoto",
-                                "TakePhoto",
-                                "SelectFile"
-                            ],
-                            "AllowedFileTypes": [],
-                            "Value": "/SAPAssetManager/Rules/Documents/InitializeAttachments.js"
-                        }
-                    ]
-                }
-            ],
-            "_Name": "FormCellContainer",
-            "_Type": "Control.Type.FormCellContainer"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "WorkOrderCreateUpdatePage"
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Actions/Equipment/AddEditDocument.action",
+				"Position": "right",
+				"SystemItem": "/SAPAssetManager/Rules/Common/Platform/DoneIcon.js",
+				"Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js"
+			}
+		]
+	},
+	"Caption": "/SAPAssetManager/Rules/Equipment/AddEditDocumentCaption.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"IsAutoResizing": true,
+							"PlaceHolder": "$(L,attachment_description)",
+							"_Name": "AttachmentDescription",
+							"_Type": "Control.Type.FormCell.Note"
+						},
+						{
+							"AllowedFileTypes": [
+							],
+							"AttachmentActionType": [
+								"AddPhoto",
+								"TakePhoto",
+								"SelectFile"
+							],
+							"AttachmentAddTitle": "$(L,add)",
+							"AttachmentTitle": "$(L,attached_files)",
+							"Value": "/SAPAssetManager/Rules/Documents/InitializeAttachments.js",
+							"_Name": "Attachment",
+							"_Type": "Control.Type.FormCell.Attachment"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "WorkOrderCreateUpdatePage",
+	"_Type": "Page"
 }

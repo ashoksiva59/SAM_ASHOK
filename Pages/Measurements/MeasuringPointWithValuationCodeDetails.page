@@ -1,185 +1,217 @@
 {
-    "Caption": "$(L,point_details)",
-    "OnLoaded": "/SAPAssetManager/Rules/Measurements/PointDetailsOnPageLoad.js",
-    "ActionBar": {
-        "Items": [
-        ]
-    },
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Header":
-                    {
-                        "Grid":
-                        {
-                            "Items":
-                            [
-                            {
-                                "Text": ""
-                            },
-                            {
-                                "Text": "$(L, valuation_code)",
-                                "TextAlignment": "left"
-                            },
-                            {
-                                "Text": "$(L, date)",
-                                "TextAlignment": "left"
-                            },
-                            {
-                                "Text": "$(L, time)",
-                                "TextAlignment": "left"
-                            }]
-                        }
-                    },
-                    "Row":
-                    {
-                        "Layout":
-                        {
-                            "ColumnWidthPercentage": [0.02, 0.40, 0.25, -1]
-                        },
-                        "Items":
-                        [{
-                            "Image":"/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValueIsLocal.js"
-                        },
-                        {
-                            "Text": "/SAPAssetManager/Rules/Measurements/ValuationCode.js"
-                        },
-                        {
-                            "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingDate.js"
-                        },
-                        {
-                            "Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingTime.js",
-                            "TextAlignment": "left"
-                        }],
-                        "AccessoryType": "disclosureIndicator",
-                        "OnPress": "/SAPAssetManager/Actions/Measurements/MeasurementDocumentDetailsNav.action"
-                    },
-                    "Target":
-                    {
-                        "EntitySet": "MeasurementDocuments",
-                        "QueryOptions": "$top=10&$select=Point,MeasurementDocNum,CodeGroup,ReadingDate,ReadingTime,HasReadingValue,ReadingValue,UOM,ValuationCode,CodeShortText,ShortText,ReadBy,MeasuringPoint/PointDesc,MeasuringPoint/CharName,MeasuringPoint/CharDescription,MeasuringPoint/IsCounter,MeasuringPoint/UoM,MeasuringPoint/CodeGroup,MeasuringPoint/CatalogType,MeasuringPoint/CounterOverflow,MeasuringPoint/PrevReadingValue,MeasuringPoint/IsCounter,MeasuringPoint/IsCounterOverflow,MeasuringPoint/IsReverse,MeasuringPoint/IsLowerRange,MeasuringPoint/IsUpperRange,MeasuringPoint/IsCodeSufficient,MeasuringPoint/LowerRange,MeasuringPoint/UpperRange,MeasuringPoint/Decimal&$expand=MeasuringPoint&$filter=Point eq '{{#Property:Point}}'&$orderby=ReadingTimestamp desc",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service"
-                    },
-                    "Footer": {
-                        "Caption": "$(L,see_all_data)",
-                        "AccessoryType": "disclosureIndicator",
-                        "FooterStyle": "attribute",
-                        "AttributeLabel": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocsCount.js",
-                        "OnPress":"/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryListViewNav.js"
-
-                    },
-                    "_Type": "Section.Type.GridTable",
-                    "_Name": "MeasurementDocumentsList"
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,details)"
-                    },
-                    "KeyAndValues": [
-                        {
-                            "KeyName": "$(L,description)",
-                            "Value": "{PointDesc}"
-                        },
-                        {
-                            "KeyName": "$(L,characteristic)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCharacteristic.js"
-                        },
-                        {
-                            "KeyName": "$(L,lower_limit)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsLowerRange.js"
-                        },
-                        {
-                            "KeyName": "$(L,upper_limit)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsUpperRange.js"
-                        },
-                        {
-                            "KeyName": "$(L,unit_of_measure)",
-                            "Value": "{UoM}"
-                        }
-                    ],
-                    "_Type": "Section.Type.KeyValue"
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,current_reading)"
-                    },
-                    "KeyAndValues": [
-                        {
-                            "KeyName": "$(L,reading)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCurrentReading.js"
-                        },
-                        {
-                            "KeyName": "$(L,valuation_code)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCurrentValuation.js"
-                        },
-                        {
-                            "KeyName": "$(L,note)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCurrentShortText.js"
-                        }
-                    ],
-                    "_Type": "Section.Type.KeyValue",
-                    "_Name": "KeyValuePairsCurrent"
-                },
-                {
-                    "Header": {
-                        "Caption": "$(L,previous_reading)"
-                    },
-                    "KeyAndValues": [
-                        {
-                            "KeyName": "$(L,reading)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReading.js"
-                        },
-                        {
-                            "KeyName": "$(L,date)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReadingDate.js"
-                        },
-                        {
-                            "KeyName": "$(L,time)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReadingTime.js"
-                        },
-                        {
-                            "KeyName": "$(L,read_by)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReadBy.js"
-                        },
-                        {
-                            "KeyName": "$(L,valuation_code)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsValuation.js"
-                        },
-                        {
-                            "KeyName": "$(L,counter_difference)",
-                            "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsDifference.js"
-                        }
-                    ],
-                    "_Type": "Section.Type.KeyValue",
-                    "_Name": "KeyValuePairsPrevious"
-                }
-            ],
-            "_Type": "Control.Type.SectionedTable",
-            "_Name": "SectionedTable"
-        }
-    ],
-    "ToolBar": {
-        "Controls": [
-            {
-                "_Name": "FlexibleSpaceLeftTbI",
-                "_Type": "Control.Type.ToolbarItem",
-                "SystemItem": "FlexibleSpace"
-            },
-            {
-                "_Name": "ReadingTbI",
-                "_Type": "Control.Type.ToolbarItem",
-                "Caption": "$(L,take_reading)",
-                "OnPress": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateNav.js"
-            },
-            {
-                "_Name": "FlexibleSpaceRightTbI",
-                "_Type": "Control.Type.ToolbarItem",
-                "SystemItem": "FlexibleSpace"
-            }
-        ]
-    },
-    "_Type": "Page",
-    "_Name": "MeasuringPointDetailsPage",
-    "DataSubscriptions": ["MeasurementDocuments"]
+	"Caption": "$(L,point_details)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Footer": {
+						"AccessoryType": "disclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocsCount.js",
+						"Caption": "$(L,see_all_data)",
+						"FooterStyle": "attribute",
+						"OnPress": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryListViewNav.js",
+						"UseBottomPadding": true
+					},
+					"Header": {
+						"Grid": {
+							"Items": [
+								{
+									"NumberOfLines": 1
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L, valuation_code)",
+									"TextAlignment": "left"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L, date)",
+									"TextAlignment": "left"
+								},
+								{
+									"NumberOfLines": 1,
+									"Text": "$(L, time)",
+									"TextAlignment": "left"
+								}
+							]
+						},
+						"UseTopPadding": true
+					},
+					"Row": {
+						"AccessoryType": "disclosureIndicator",
+						"Items": [
+							{
+								"Image": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointValueIsLocal.js",
+								"NumberOfLines": 1
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/ValuationCode.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingDate.js"
+							},
+							{
+								"NumberOfLines": 1,
+								"Text": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointHistoryReadingTime.js",
+								"TextAlignment": "left"
+							}
+						],
+						"Layout": {
+							"ColumnWidthPercentage": [
+								0.02,
+								0.4,
+								0.25,
+								-1
+							]
+						},
+						"OnPress": "/SAPAssetManager/Actions/Measurements/MeasurementDocumentDetailsNav.action"
+					},
+					"Target": {
+						"EntitySet": "MeasurementDocuments",
+						"QueryOptions": "$top=10&$select=Point,MeasurementDocNum,CodeGroup,ReadingDate,ReadingTime,HasReadingValue,ReadingValue,UOM,ValuationCode,CodeShortText,ShortText,ReadBy,MeasuringPoint/PointDesc,MeasuringPoint/CharName,MeasuringPoint/CharDescription,MeasuringPoint/IsCounter,MeasuringPoint/UoM,MeasuringPoint/CodeGroup,MeasuringPoint/CatalogType,MeasuringPoint/CounterOverflow,MeasuringPoint/PrevReadingValue,MeasuringPoint/IsCounter,MeasuringPoint/IsCounterOverflow,MeasuringPoint/IsReverse,MeasuringPoint/IsLowerRange,MeasuringPoint/IsUpperRange,MeasuringPoint/IsCodeSufficient,MeasuringPoint/LowerRange,MeasuringPoint/UpperRange,MeasuringPoint/Decimal&$expand=MeasuringPoint&$filter=Point eq '{{#Property:Point}}'&$orderby=ReadingTimestamp desc",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "MeasurementDocumentsList",
+					"_Type": "Section.Type.GridTable"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,details)",
+						"UseTopPadding": true
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,description)",
+							"Value": "{PointDesc}"
+						},
+						{
+							"KeyName": "$(L,characteristic)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCharacteristic.js"
+						},
+						{
+							"KeyName": "$(L,lower_limit)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsLowerRange.js"
+						},
+						{
+							"KeyName": "$(L,upper_limit)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsUpperRange.js"
+						},
+						{
+							"KeyName": "$(L,unit_of_measure)",
+							"Value": "{UoM}"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "SectionKeyValue0",
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,current_reading)",
+						"UseTopPadding": true
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,reading)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCurrentReading.js"
+						},
+						{
+							"KeyName": "$(L,valuation_code)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCurrentValuation.js"
+						},
+						{
+							"KeyName": "$(L,note)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsCurrentShortText.js"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "KeyValuePairsCurrent",
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,previous_reading)",
+						"UseTopPadding": true
+					},
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,reading)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReading.js"
+						},
+						{
+							"KeyName": "$(L,date)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReadingDate.js"
+						},
+						{
+							"KeyName": "$(L,time)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReadingTime.js"
+						},
+						{
+							"KeyName": "$(L,read_by)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsReadBy.js"
+						},
+						{
+							"KeyName": "$(L,valuation_code)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsValuation.js"
+						},
+						{
+							"KeyName": "$(L,counter_difference)",
+							"Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointDetailsDifference.js"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "KeyValuePairsPrevious",
+					"_Type": "Section.Type.KeyValue"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"MeasurementDocuments"
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Measurements/PointDetailsOnPageLoad.js",
+	"ToolBar": {
+		"Controls": [
+			{
+				"Clickable": true,
+				"Enabled": true,
+				"SystemItem": "FlexibleSpace",
+				"Visible": true,
+				"_Name": "FlexibleSpaceLeftTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			},
+			{
+				"Caption": "$(L,take_reading)",
+				"Clickable": true,
+				"Enabled": true,
+				"OnPress": "/SAPAssetManager/Rules/Measurements/Document/MeasurementDocumentCreateNav.js",
+				"Visible": true,
+				"_Name": "ReadingTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			},
+			{
+				"Clickable": true,
+				"Enabled": true,
+				"SystemItem": "FlexibleSpace",
+				"Visible": true,
+				"_Name": "FlexibleSpaceRightTbI",
+				"_Type": "Control.Type.ToolbarItem"
+			}
+		]
+	},
+	"_Name": "MeasuringPointDetailsPage",
+	"_Type": "Page"
 }

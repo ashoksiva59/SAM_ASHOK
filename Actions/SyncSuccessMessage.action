@@ -1,9 +1,8 @@
 {
-    "_Type": "Action.Type.ToastMessage",
-    "Icon": "",
-    "Message" : "$(L,sync_success)",
-    "IsIconHidden": false,
-    "MaxNumberOfLines": 2,
-    "Duration": 3,
-    "Animated": true
+	"Animated": true,
+	"Duration": 3,
+	"IsIconHidden": false,
+	"MaxNumberOfLines": 2,
+	"Message": "$(L,sync_success)",
+	"_Type": "Action.Type.ToastMessage"
 }

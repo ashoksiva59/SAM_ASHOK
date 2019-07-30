@@ -1,17 +1,12 @@
 {
-	"_Type": "Page",
-	"_Name": "PRTMiscellaneousDetailsPage",
 	"Caption": "/SAPAssetManager/Rules/Operations/PRT/MiscellaneousDetailsCaption.js",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "PRTMiscellaneousDetailsSectionedTable",
 			"Sections": [
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "PRTMiscellaneousDetailsSection",
 					"Header": {
-						"Caption": "Miscellaneous Details"
+						"Caption": "Miscellaneous Details",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -30,9 +25,19 @@
 							"KeyName": "$(L,item)",
 							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTItemValue.js"
 						}
-					]
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "PRTMiscellaneousDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-			]
+			],
+			"_Name": "PRTMiscellaneousDetailsSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"_Name": "PRTMiscellaneousDetailsPage",
+	"_Type": "Page"
 }

@@ -1,44 +1,46 @@
 {
-    "ActionBar": {
-		"Items": [
-		]
-	},
-    "Caption": "Select Material ",
-    "Controls": [
-        {
-            "Sections": [
-                {
-                    "Search": {
-                        "Enabled": true,
-                        "Delay": 500,
-                        "MinimumCharacterThreshold": 50,
-                        "Placeholder": "$(L,search)",
-				        "BarcodeScanner": true
-                    },
-                    "EmptySection": {
-                        "Caption": "$(L,no_parts_available)"
-                    },
-                    "Header": {
-		 		        "UseTopPadding": false
-    		        },
-                    "ObjectCell": {
-                        "Subhead": "{{#Property:MaterialNum}} - {{#Property:Material/#Property:Description}}",
-                        "OnPress": "/SAPAssetManager/Actions/Parts/NavToPartCreateSummary.action"
-                    },
-                    "Target": {
-                        "EntitySet": "MaterialPlants",
-                        "Service": "/SAPAssetManager/Services/AssetManager.service",
-                        "QueryOptions": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartListQueryOptions.js"
-                    },
-                    "_Type": "Section.Type.ObjectTable",
-                    "_Name": "PartsList"
-                }
-            ],
-            "_Type": "Control.Type.SectionedTable",
-            "_Name": "PartsListSectionedTable"
-        }
-    ],
-    "_Type": "Page",
-    "_Name": "PartsOfflinePickerPage",
-    "DataSubscriptions":["MyWorkOrderComponents","MaterialDocuments","MaterialDocItems"]
+	"Caption": "Select Material ",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_parts_available)"
+					},
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "none",
+						"OnPress": "/SAPAssetManager/Actions/Parts/NavToPartCreateSummary.action",
+						"Subhead": "{{#Property:MaterialNum}} - {{#Property:Material/#Property:Description}}",
+						"Title": "Object Cell"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 50,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "MaterialPlants",
+						"QueryOptions": "/SAPAssetManager/Rules/Parts/CreateUpdate/PartListQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "PartsList",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "PartsListSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": [
+		"MyWorkOrderComponents",
+		"MaterialDocuments",
+		"MaterialDocItems"
+	],
+	"_Name": "PartsOfflinePickerPage",
+	"_Type": "Page"
 }

@@ -1,73 +1,76 @@
 {
-    "ActionBar": {
-        "Items": [
-            {
-                "Position": "left",
-                "SystemItem": "Cancel",
-                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
-            },
-            {
-                "Position": "right",
-                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
-                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
-                "OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js"
-            }
-        ]
-    },
-    "Caption":"$(L,filter)",
-    "Result":
-    [
-        "#Page:FunctionalLocationFilterPage/#Control:SortFilter/#Value"
-    ],
-    "Controls":
-    [{
-        "Sections":
-        [{
-            "Controls":
-            [{
-                "AllowEmptySelection":false,
-                "Caption":"$(L,sort_by)",
-                "SortByItems":
-                [{
-                    "ReturnValue":"FuncLocId",
-                    "DisplayValue":"$(L,ID)"
-                },
-                {
-                    "ReturnValue":"FuncLocDesc",
-                    "DisplayValue":"$(L,description)"
-                },
-                {
-                    "ReturnValue":"PlanningPlant",
-                    "DisplayValue":"$(L,plant)"
-                },
-                {
-                    "ReturnValue":"WorkCenter",
-                    "DisplayValue":"$(L,workcenter)"
-                },
-                {
-                    "ReturnValue":"Location",
-                    "DisplayValue":"$(L,location)"
-                }
-                ],
-                "_Name":"SortFilter",
-                "_Type":"Control.Type.FormCell.Sorter",
-                "IsEditable":true
-            }]
-        },
-        {
-            "Controls": [
-                {
-                    "Title": "$(L,reset_all)",
-                    "OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
-                    "_Type": "Control.Type.FormCell.Button",
-                    "_Name": "ResetButton"
-                }
-            ]
-        }],
-        "_Name":"FormCellContainer",
-        "_Type":"Control.Type.FormCellContainer"
-    }],
-    "_Type":"Page",
-    "_Name":"FunctionalLocationFilterPage",
-    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action",
+				"Position": "left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Rules/Filter/FilterDone.js",
+				"Position": "right",
+				"SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+				"Text": "/SAPAssetManager/Rules/Filter/FilterText.js"
+			}
+		]
+	},
+	"Caption": "$(L,filter)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Controls": [
+						{
+							"AllowEmptySelection": false,
+							"Caption": "$(L,sort_by)",
+							"IsEditable": true,
+							"SortByItems": [
+								{
+									"DisplayValue": "$(L,ID)",
+									"ReturnValue": "FuncLocId"
+								},
+								{
+									"DisplayValue": "$(L,description)",
+									"ReturnValue": "FuncLocDesc"
+								},
+								{
+									"DisplayValue": "$(L,plant)",
+									"ReturnValue": "PlanningPlant"
+								},
+								{
+									"DisplayValue": "$(L,workcenter)",
+									"ReturnValue": "WorkCenter"
+								},
+								{
+									"DisplayValue": "$(L,location)",
+									"ReturnValue": "Location"
+								}
+							],
+							"_Name": "SortFilter",
+							"_Type": "Control.Type.FormCell.Sorter"
+						}
+					]
+				},
+				{
+					"Controls": [
+						{
+							"OnPress": "/SAPAssetManager/Rules/Filter/FilterReset.js",
+							"TextAlignment": "center",
+							"Title": "$(L,reset_all)",
+							"_Name": "ResetButton",
+							"_Type": "Control.Type.FormCell.Button"
+						}
+					]
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js",
+	"Result": [
+		"#Page:FunctionalLocationFilterPage/#Control:SortFilter/#Value"
+	],
+	"_Name": "FunctionalLocationFilterPage",
+	"_Type": "Page"
 }

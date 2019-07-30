@@ -1,12 +1,10 @@
 {
-     "Target": {
-         "EntitySet": "/SAPAssetManager/Rules/Equipment/DocumentAddEditEntitySet.js",
-         "Service": "/SAPAssetManager/Services/AssetManager.service",
-         "ReadLink" : "{@odata.readLink}"
-     },
-     "Properties" : {		
-     },
-     "OnSuccess": "/SAPAssetManager/Rules/Documents/Create/DocumentCreateDelete.js",
-     "ValidationRule": "/SAPAssetManager/Rules/Equipment/DocumentAddEditValidation.js",
-     "_Type": "Action.Type.ODataService.UpdateEntity"
- }
+	"OnSuccess": "/SAPAssetManager/Rules/Documents/Create/DocumentCreateDelete.js",
+	"Target": {
+		"EntitySet": "/SAPAssetManager/Rules/Equipment/DocumentAddEditEntitySet.js",
+		"ReadLink": "{@odata.readLink}",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"ValidationRule": "/SAPAssetManager/Rules/Equipment/DocumentAddEditValidation.js",
+	"_Type": "Action.Type.ODataService.UpdateEntity"
+}

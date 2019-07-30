@@ -1,17 +1,12 @@
 {
-	"_Type": "Page",
-	"_Name": "PRTMaterialDetailsPage",
 	"Caption": "/SAPAssetManager/Rules/Material/MaterialDetailsCaption.js",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "PRTMaterialDetailsSectionedTable",
 			"Sections": [
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "PRTMaterialDetailsSection",
 					"Header": {
-						"Caption": "Material Details"
+						"Caption": "Material Details",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -30,9 +25,19 @@
 							"KeyName": "$(L,item)",
 							"Value": "/SAPAssetManager/Rules/Operations/PRT/PRTItemValue.js"
 						}
-					]
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "PRTMaterialDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-			]
+			],
+			"_Name": "PRTMaterialDetailsSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"_Name": "PRTMaterialDetailsPage",
+	"_Type": "Page"
 }

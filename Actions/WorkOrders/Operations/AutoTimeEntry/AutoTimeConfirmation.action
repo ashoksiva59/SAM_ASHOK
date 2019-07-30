@@ -1,0 +1,22 @@
+{
+	"CreateLinks": [
+		{
+			"Property": "WorkOrderOperation",
+			"Target": {
+				"EntitySet": "MyWorkOrderOperations"
+			},
+			"_Enabled": true
+		}
+	],
+	"Properties": {
+		"ConfirmationCounter": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GenerateConfirmationCounter.js",
+		"ConfirmationNum": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GenerateOffsetConfirmationNum.js",
+		"Operation": "0020",
+		"OrderType": "4000151"
+	},
+	"Target": {
+		"EntitySet": "Confirmations",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"_Type": "Action.Type.ODataService.CreateEntity"
+}

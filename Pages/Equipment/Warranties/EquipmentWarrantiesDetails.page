@@ -1,17 +1,12 @@
 {
-	"_Type": "Page",
-	"_Name": "EquipmentWarrantiesDetailsPage",
 	"Caption": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesDetailCaption.js",
 	"Controls": [
 		{
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "EquipmentWarrantiesDetailsSectionedTable",
 			"Sections": [
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "EquipmentWarrantiesDetailsSection",
 					"Header": {
-						"Caption": "$(L,warranty_details)"
+						"Caption": "$(L,warranty_details)",
+						"UseTopPadding": true
 					},
 					"KeyAndValues": [
 						{
@@ -34,24 +29,34 @@
 							"KeyName": "$(L,description)",
 							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesDescription.js"
 						}
-						
-					]
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "EquipmentWarrantiesDetailsSection",
+					"_Type": "Section.Type.KeyValue"
 				},
 				{
-					"_Type": "Section.Type.KeyValue",
-					"_Name": "EquipmentWarrantiesNotesSection",
-					"Layout": {
-						"NumberOfColumns": 1,
-                        "MinimumInteritemSpacing": 66
-					},
 					"KeyAndValues": [
 						{
 							"KeyName": "$(L, notes)",
 							"Value": "/SAPAssetManager/Rules/Equipment/Warranties/EquipmentWarrantiesLongText.js"
 						}
-					]
+					],
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"MaxItemCount": 1,
+					"_Name": "EquipmentWarrantiesNotesSection",
+					"_Type": "Section.Type.KeyValue"
 				}
-			]
+			],
+			"_Name": "EquipmentWarrantiesDetailsSectionedTable",
+			"_Type": "Control.Type.SectionedTable"
 		}
-	]
+	],
+	"_Name": "EquipmentWarrantiesDetailsPage",
+	"_Type": "Page"
 }

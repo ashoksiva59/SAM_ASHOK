@@ -1,58 +1,58 @@
 {
-    "_Type": "Page",
-    "_Name": "ChecklistsListViewPage",
-    "OnLoaded": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewOnPageLoad.js",
-    "ActionBar":
-    {
-        "Items":
-        [{
-            "Position": "right",
-            "Icon": "res://add",
-            "OnPress": "/SAPAssetManager/Rules/Checklists/Create/ChecklistCreateNav.js",
-            "Visible": "/SAPAssetManager/Rules/Checklists/Equipment/AllowChecklistCreateEquipment.js"
-        }]
-    },
-    "Controls":
-    [{
-        "Sections":
-        [{
-            "Search":
-            {
-                "Enabled": "/SAPAssetManager/Rules/Checklists/Equipment/EquipmentChecklistsSearchEnabled.js",
-                "Delay": 500,
-                "MinimumCharacterThreshold": 3,
-                "Placeholder": "$(L,search)",
-                "BarcodeScanner": true
-            },
-            "Header":
-            {
-                "UseTopPadding": false
-            },
-            "EmptySection":
-            {
-                "Caption": "$(L,no_checklists_available)"
-            },
-            "ObjectCell":
-            {
-                "Icons": "/SAPAssetManager/Rules/Checklists/ChecklistListViewIconImages.js",
-                "PreserveIconStackSpacing": true,
-                "Title": "#Property:Form_Nav/#Property:ShortDescription",
-                "Subhead": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
-                "SubstatusText": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
-                "OnPress": "/SAPAssetManager/Rules/Checklists/ChecklistViewNav.js"
-            },
-            "Target":
-            {
-                "EntitySet": "{{#Property:@odata.readLink}}/EquipAssessments_Nav",
-                "Service": "/SAPAssetManager/Services/AssetManager.service",
-                "QueryOptions": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewQueryOptions.js"
-            },
-            "_Type": "Section.Type.ObjectTable",
-            "_Name" : "ChecklistsListViewSection",
-            "DataSubscriptions": ["ObjectFormAssessments","Forms"]
-            }],
-            "_Type": "Control.Type.SectionedTable",
-            "_Name" : "SectionedTable"
-        }
-    ]
+	"ActionBar": {
+		"Items": [
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Checklists/Create/ChecklistCreateNav.js",
+				"Position": "right",
+				"Visible": "/SAPAssetManager/Rules/Checklists/Equipment/AllowChecklistCreateEquipment.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"DataSubscriptions": [
+						"ObjectFormAssessments",
+						"Forms"
+					],
+					"EmptySection": {
+						"Caption": "$(L,no_checklists_available)"
+					},
+					"Header": {
+						"UseTopPadding": false
+					},
+					"ObjectCell": {
+						"AccessoryType": "none",
+						"Icons": "/SAPAssetManager/Rules/Checklists/ChecklistListViewIconImages.js",
+						"OnPress": "/SAPAssetManager/Rules/Checklists/ChecklistViewNav.js",
+						"PreserveIconStackSpacing": true,
+						"Subhead": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
+						"SubstatusText": "/SAPAssetManager/Rules/Checklists/ChecklistListViewFormat.js",
+						"Title": "#Property:Form_Nav/#Property:ShortDescription"
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Delay": 500,
+						"Enabled": "/SAPAssetManager/Rules/Checklists/Equipment/EquipmentChecklistsSearchEnabled.js",
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/EquipAssessments_Nav",
+						"QueryOptions": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "ChecklistsListViewSection",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Checklists/ChecklistsListViewOnPageLoad.js",
+	"_Name": "ChecklistsListViewPage",
+	"_Type": "Page"
 }

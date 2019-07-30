@@ -1,97 +1,107 @@
 {
-    "Caption" : "$(L,profile)",
-    "ActionBar": {
-        "Items": [
-            {
-                "Position": "left",
-                "Text": "$(L,close)",
-                "SystemItem": "/SAPAssetManager/Rules/UserPreferences/UserProfileCloseIcon.js",
-                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
-            }
-        ]
-    },
-    "Controls": [
-    {
-      "Sections": [
-        {
-          "SimplePropertyCells": [
-            {
-              "SimplePropertyCell": {
-                "AccessoryType": "disclosureIndicator",
-                "KeyName" : "$(L,passcode)",
-                "OnPress": "/SAPAssetManager/Rules/UserPreferences/ChangeUserPasscode.js"
-              }
-            }
-          ],
-          "Layout": {
-            "NumberOfColumns": 1,
-            "MinimumInteritemSpacing": 66
-          },
-          "_Type" : "Section.Type.SimplePropertyCollection"
-        },
-        {
-        "SimplePropertyCells": [
-            {
-              "SimplePropertyCell": {
-                "AccessoryType": "disclosureIndicator",
-                "KeyName" : "$(L,support)",
-                "OnPress": "/SAPAssetManager/Rules/UserPreferences/UserSupportNav.js"
-              }
-            }
-          ],
-          "Layout": {
-            "NumberOfColumns": 1,
-            "MinimumInteritemSpacing": 66
-          },
-          "_Type" : "Section.Type.SimplePropertyCollection"
-        },
-        {
-          "SimplePropertyCells": [
-            {
-              "SimplePropertyCell": {
-                "AccessoryType": "disclosureIndicator",
-                "KeyName" : "$(L,sync_errors)",
-                "OnPress": "/SAPAssetManager/Actions/ErrorArchive/ErrorArchive.action"
-              }
-            }
-          ],
-          "Layout": {
-            "NumberOfColumns": 1,
-            "MinimumInteritemSpacing": 66
-          },
-          "_Type" : "Section.Type.SimplePropertyCollection"
-        },
-        {
-          "Buttons": [
-            {
-              "Title" : "$(L,sync)",
-              "Style": "FormCellButton",
-              "OnPress": "/SAPAssetManager/Actions/SyncInitializeProgressBannerMessage.action",
-              "TextAlignment" : "center"
-            }
-          ],
-          "_Type": "Section.Type.ButtonTable"
-        },
-         {
-          "Footer": {
-          "Caption": "$(L,reset_caption)",
-          "FooterStyle": "help"
-          },
-          "Buttons": [
-            {
-              "Title" : "$(L,reset)",
-              "Style": "ResetRed",
-              "OnPress" : "/SAPAssetManager/Rules/Common/ResetAlertAction.js",
-              "TextAlignment" : "center"
-            }
-          ],
-          "_Type": "Section.Type.ButtonTable"
-        }
-      ],
-      "_Type": "Control.Type.SectionedTable",
-      "_Name": "SectionedTable"
-    }
-  ],
-  "_Type": "Page",
-  "_Name": "UserProfileSettings"
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action",
+				"Position": "left",
+				"SystemItem": "/SAPAssetManager/Rules/UserPreferences/UserProfileCloseIcon.js",
+				"Text": "$(L,close)"
+			}
+		]
+	},
+	"Caption": "$(L,profile)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,passcode)",
+								"OnPress": "/SAPAssetManager/Rules/UserPreferences/ChangeUserPasscode.js",
+								"Value": "Value"
+							}
+						}
+					],
+					"_Name": "SectionSimplePropertyCollection0",
+					"_Type": "Section.Type.SimplePropertyCollection"
+				},
+				{
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,support)",
+								"OnPress": "/SAPAssetManager/Rules/UserPreferences/UserSupportNav.js",
+								"Value": "Value"
+							}
+						}
+					],
+					"_Name": "SectionSimplePropertyCollection1",
+					"_Type": "Section.Type.SimplePropertyCollection"
+				},
+				{
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,sync_errors)",
+								"OnPress": "/SAPAssetManager/Actions/ErrorArchive/ErrorArchive.action",
+								"Value": "Value"
+							}
+						}
+					],
+					"_Name": "SectionSimplePropertyCollection2",
+					"_Type": "Section.Type.SimplePropertyCollection"
+				},
+				{
+					"Buttons": [
+						{
+							"OnPress": "/SAPAssetManager/Actions/SyncInitializeProgressBannerMessage.action",
+							"Style": "FormCellButton",
+							"TextAlignment": "center",
+							"Title": "$(L,sync)"
+						}
+					],
+					"_Name": "SectionButtonTable0",
+					"_Type": "Section.Type.ButtonTable"
+				},
+				{
+					"Buttons": [
+						{
+							"OnPress": "/SAPAssetManager/Rules/Common/ResetAlertAction.js",
+							"Style": "ResetRed",
+							"TextAlignment": "center",
+							"Title": "$(L,reset)"
+						}
+					],
+					"Footer": {
+						"AttributeLabel": "",
+						"Caption": "$(L,reset_caption)",
+						"FooterStyle": "help",
+						"UseBottomPadding": true
+					},
+					"_Name": "SectionButtonTable1",
+					"_Type": "Section.Type.ButtonTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "UserProfileSettings",
+	"_Type": "Page"
 }

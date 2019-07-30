@@ -1,66 +1,72 @@
 {
-	"Caption": "/SAPAssetManager/Rules/Notifications/Activity/NotificationActivityHeader.js",
-	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsOnPageLoad.js",
-
-	"ActionBar":
-	{
-		"Items":
-		[
-			 {
-                "Position": "right",
-            	"Icon": "res://add",
-                "OnPress": "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsPopover.js"
-            },
-            {
-                "Position": "right",
-                "SystemItem": "Edit",
-                "OnPress": "/SAPAssetManager/Rules/Notifications/Activity/CreateUpdate/NotificationActivityUpdateNav.js"
-            }		  
+	"ActionBar": {
+		"Items": [
+			{
+				"Icon": "res://add",
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsPopover.js",
+				"Position": "right"
+			},
+			{
+				"OnPress": "/SAPAssetManager/Rules/Notifications/Activity/CreateUpdate/NotificationActivityUpdateNav.js",
+				"Position": "right",
+				"SystemItem": "Edit"
+			}
 		]
 	},
-	"Controls":
-	[{
-		"Sections":
-		[{
-			"KeyAndValues":
-			[{
-				"KeyName" : "$(L,description)",
-				"Value" : "{ActivityText}"
-			},
-			{
-				"KeyName" : "$(L,sort_number)",
-				"Value" : "{ActivitySortNumber}"
-			},
-			{
-				"KeyName" : "$(L,group)",
-				"Value" : "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsGroup.js"
-			},
-			{
-				"KeyName" : "$(L,code)",
-				"Value" : "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsCode.js"
-			}],
-			"_Type" : "Section.Type.KeyValue"
-		},
+	"Caption": "/SAPAssetManager/Rules/Notifications/Activity/NotificationActivityHeader.js",
+	"Controls": [
 		{
-            "SimplePropertyCells":
-            [{
-                "SimplePropertyCell": {
-                    "AccessoryType": "disclosureIndicator",
-                    "KeyName": "$(L,notes)",
-                    "Value": "/SAPAssetManager/Rules/Notes/NotesCount.js",
-                    "OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js"
-                }
-            }],
-			"Layout":
-			{
-				"NumberOfColumns" : 1,
-                "MinimumInteritemSpacing": 66
-			},
-            "_Type" : "Section.Type.SimplePropertyCollection"
-        }],
-		"_Type": "Control.Type.SectionedTable",
-		"_Name": "SectionedTable"
-	}],
-	"_Type": "Page",
-	"_Name": "NotificationActivityDetailsPage"
+			"Sections": [
+				{
+					"KeyAndValues": [
+						{
+							"KeyName": "$(L,description)",
+							"Value": "{ActivityText}"
+						},
+						{
+							"KeyName": "$(L,sort_number)",
+							"Value": "{ActivitySortNumber}"
+						},
+						{
+							"KeyName": "$(L,group)",
+							"Value": "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsGroup.js"
+						},
+						{
+							"KeyName": "$(L,code)",
+							"Value": "/SAPAssetManager/Rules/Notifications/Activity/Details/NotificationActivityDetailsCode.js"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2
+					},
+					"MaxItemCount": 1,
+					"_Name": "SectionKeyValue0",
+					"_Type": "Section.Type.KeyValue"
+				},
+				{
+					"Layout": {
+						"MinimumInteritemSpacing": 66,
+						"NumberOfColumns": 1
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"AccessoryType": "disclosureIndicator",
+								"KeyName": "$(L,notes)",
+								"OnPress": "/SAPAssetManager/Rules/Notes/NotesViewNav.js",
+								"Value": "/SAPAssetManager/Rules/Notes/NotesCount.js"
+							}
+						}
+					],
+					"_Name": "SectionSimplePropertyCollection0",
+					"_Type": "Section.Type.SimplePropertyCollection"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"OnLoaded": "/SAPAssetManager/Rules/Notifications/Details/NotificationDetailsOnPageLoad.js",
+	"_Name": "NotificationActivityDetailsPage",
+	"_Type": "Page"
 }
