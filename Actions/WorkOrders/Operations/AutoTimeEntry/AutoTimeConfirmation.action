@@ -9,10 +9,12 @@
 		}
 	],
 	"Properties": {
-		"ConfirmationCounter": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GenerateConfirmationCounter.js",
-		"ConfirmationNum": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GenerateOffsetConfirmationNum.js",
-		"Operation": "0020",
-		"OrderType": "4000151"
+		"ConfirmationCounter": "",
+		"ConfirmationNum": "",
+		"Description": "Test Ashok MDK Action",
+		"Operation": "0060",
+		"OrderID": "4000341",
+		"OrderType": ""
 	},
 	"Target": {
 		"EntitySet": "Confirmations",

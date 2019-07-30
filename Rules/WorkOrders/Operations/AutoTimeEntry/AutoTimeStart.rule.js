@@ -2,17 +2,19 @@ export default function AutoTimeStart(context) {
 	debugger;
 
 	var JobStartedStatus;
-	// Check whether Job started User status exists
-	if (JobStartedStatus) {
-
-	} else {
-		// Post the User status as Job Started for work order operation	
-
-		// Up on status of user status, Post Confirmation
-
-		// Mark Pause & Stop button as Enable
-
-	}
+	var Query = "$expand=MobileStatus";
+	// Fetch User status for operation 
+	return context.read('/SAPAssetManager/Services/AssetManager.service', context.binding['@odata.readLink'], [], Query).then(
+		mobileStatus => {
+			JobStartedStatus = mobileStatus.getItem(0).MobileStatus.UserStatus;
+			// Check Whether Operation has user status as Job Started
+			if (JobStartedStatus == 'STRD') {
+				return; // Dont do any thing as of now, will cover this senario when we have multiple segements of time recorded
+			} else {
+				// Post Blank Confirmation with current system date and time
+				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
+			}
+		});
 
 	//return clientAPI;
 }
