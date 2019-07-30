@@ -1,20 +1,12 @@
 {
-	"CreateLinks": [
-		{
-			"Property": "WorkOrderOperation",
-			"Target": {
-				"EntitySet": "MyWorkOrderOperations"
-			},
-			"_Enabled": true
-		}
-	],
 	"Properties": {
-		"ConfirmationCounter": "",
-		"ConfirmationNum": "",
-		"Description": "Test Ashok MDK Action",
-		"Operation": "0060",
-		"OrderID": "4000341",
-		"OrderType": ""
+		"Description": "Test MDK - Ashok",
+		"FinishDate": "",
+		"FinishTime": "",
+		"Operation": "#Property:OperationNo",
+		"OrderID": "#Property:OrderId",
+		"StartDate": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+		"StartTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js"
 	},
 	"Target": {
 		"EntitySet": "Confirmations",
