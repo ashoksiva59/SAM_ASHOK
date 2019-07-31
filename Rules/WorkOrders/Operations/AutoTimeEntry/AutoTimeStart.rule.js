@@ -16,7 +16,7 @@ export default function AutoTimeStart(context) {
 				libCommon.setStateVariable(context, 'ATEAction', context.localizeText('start'));
 				
 				// Post User Status of the operation to START
-				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action');
+				//return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action');
 				
 				// Post Confirmation with current system date and time
 				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');

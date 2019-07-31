@@ -4,10 +4,8 @@
 	"Properties": {
 		"Description": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationDescription.rule.js",
 		"FinalConfirmation": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEFinalConfirmationFlag.rule.js",
-		"FinishTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js",
 		"Operation": "#Property:OperationNo",
-		"OrderID": "#Property:OrderId",
-		"StartTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js"
+		"OrderID": "#Property:OrderId"
 	},
 	"Target": {
 		"EntitySet": "Confirmations",
