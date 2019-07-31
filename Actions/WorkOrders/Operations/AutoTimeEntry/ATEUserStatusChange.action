@@ -1,8 +1,12 @@
 {
+	"Properties": {
+		"MobileStatus": "STRD",
+		"ObjectKey": "#Property:ObjectKey"
+	},
 	"Target": {
 		"EntitySet": "MobileStatuses",
 		"QueryOptions": "",
-		"ReadLink": "/SAPAssetManager/Rules/MobileStatus/MobileStatusReadLink.js",
+		"ReadLink": "{@odata.readLink}",
 		"Service": "/SAPAssetManager/Services/AssetManager.service"
 	},
 	"_Type": "Action.Type.ODataService.UpdateEntity"
