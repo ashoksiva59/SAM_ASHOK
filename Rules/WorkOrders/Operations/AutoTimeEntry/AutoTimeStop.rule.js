@@ -13,6 +13,8 @@ export default function AutoTimeStop(Context) {
 		} else {
 			// Update the User Status of the operation to STOP
 			
+			// Set Confirmation Action
+			libCommon.setStateVariable(Context, 'ATEAction',Context.localizeText('stop'));
 			// Post Confirmation with current system date and time Along with Final confirmation Indicator
 			return Context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
 		}

@@ -4,21 +4,21 @@
 			"Enabled": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/StartEnable.rule.js",
 			"Icon": "/SAPAssetManager/Images/Start.png",
 			"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStart.rule.js",
-			"Title": "Start",
+			"Title": "$(L,start)",
 			"Visible": true
 		},
 		{
 			"Enabled": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/PauseEnable.rule.js",
 			"Icon": "/SAPAssetManager/Images/Pause.png",
 			"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimePause.rule.js",
-			"Title": "Pause",
+			"Title": "$(L,pause)",
 			"Visible": true
 		},
 		{
 			"Enabled": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/StopEnable.rule.js",
 			"Icon": "/SAPAssetManager/Images/Stop.png",
 			"OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/AutoTimeStop.rule.js",
-			"Title": "Stop",
+			"Title": "$(L,stop)",
 			"Visible": true
 		}
 	],

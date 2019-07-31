@@ -1,0 +1,9 @@
+{
+	"Target": {
+		"EntitySet": "MobileStatuses",
+		"QueryOptions": "",
+		"ReadLink": "/SAPAssetManager/Rules/MobileStatus/MobileStatusReadLink.js",
+		"Service": "/SAPAssetManager/Services/AssetManager.service"
+	},
+	"_Type": "Action.Type.ODataService.UpdateEntity"
+}

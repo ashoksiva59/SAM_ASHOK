@@ -3,9 +3,12 @@
 	"OnSuccess": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationSuccess.action",
 	"Properties": {
 		"Description": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationDescription.rule.js",
+		"FinalConfirmation": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEFinalConfirmationFlag.rule.js",
+		"FinishDate": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATECurrentDate.rule.js",
+		"FinishTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js",
 		"Operation": "#Property:OperationNo",
 		"OrderID": "#Property:OrderId",
-		"StartDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetDate.js",
+		"StartDate": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATECurrentDate.rule.js",
 		"StartTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js"
 	},
 	"Target": {

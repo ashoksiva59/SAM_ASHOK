@@ -1,3 +1,4 @@
+import libCommon from '../../../Common/Library/CommonLibrary';
 export default function AutoTimeStart(context) {
 	debugger;
 
@@ -11,7 +12,12 @@ export default function AutoTimeStart(context) {
 			if (JobStartedStatus == 'STRD') {
 				return; // Dont do any thing as of now, will cover this senario when we have multiple segements of time recorded
 			} else {
-				// Update the User Status of the operation to START
+				// Set Confirmation Action
+				libCommon.setStateVariable(context, 'ATEAction', context.localizeText('start'));
+				
+				// Post User Status of the operation to START
+				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action');
+				
 				// Post Confirmation with current system date and time
 				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
 			}

@@ -7,7 +7,10 @@ export default function AutoTimePause(Context) {
 
 	return libCommon.showWarningDialog(Context, messageText, captionText, okButtonText, cancelButtonText).then(function () {
 		// Update the User Status of the operation to PAUSE
+		
 		// Post Confirmation with current system date and time
+		// Set Confirmation Action
+		 libCommon.setStateVariable(Context, 'ATEAction',Context.localizeText('pause'));
 		return Context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
 	}).catch(() => {
 		// If User press Do Nothing
