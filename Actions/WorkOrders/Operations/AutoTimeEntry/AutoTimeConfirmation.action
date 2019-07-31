@@ -1,11 +1,11 @@
 {
+	"OnFailure": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationFailure.action",
+	"OnSuccess": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationSuccess.action",
 	"Properties": {
-		"Description": "Test MDK - Ashok",
-		"FinishDate": "",
-		"FinishTime": "",
+		"Description": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationDescription.rule.js",
 		"Operation": "#Property:OperationNo",
 		"OrderID": "#Property:OrderId",
-		"StartDate": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+		"StartDate": "/SAPAssetManager/Rules/Confirmations/CreateUpdate/OnCommit/GetDate.js",
 		"StartTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js"
 	},
 	"Target": {

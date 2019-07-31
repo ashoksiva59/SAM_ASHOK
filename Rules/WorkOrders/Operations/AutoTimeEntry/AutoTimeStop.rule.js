@@ -11,8 +11,10 @@ export default function AutoTimeStop(Context) {
 		if (Isrestartpause) {
 
 		} else {
-			//Trigger Partial Confirmation to SAP Asset Manager
-			return Context.executeAction('/SAPAssetManager/Actions/WorkOrders/MobileStatus/OperationMobileStatusSuccessMessage.action');
+			// Update the User Status of the operation to STOP
+			
+			// Post Confirmation with current system date and time Along with Final confirmation Indicator
+			return Context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
 		}
 	}).catch(() => {
 		// If User press Do Nothing

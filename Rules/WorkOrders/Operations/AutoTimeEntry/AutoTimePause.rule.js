@@ -6,8 +6,9 @@ export default function AutoTimePause(Context) {
 	const cancelButtonText = Context.localizeText('no');
 
 	return libCommon.showWarningDialog(Context, messageText, captionText, okButtonText, cancelButtonText).then(function () {
-
-		return Context.executeAction('/SAPAssetManager/Actions/WorkOrders/MobileStatus/OperationMobileStatusSuccessMessage.action');
+		// Update the User Status of the operation to PAUSE
+		// Post Confirmation with current system date and time
+		return Context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
 	}).catch(() => {
 		// If User press Do Nothing
 		return Promise.resolve();

@@ -1,5 +1,4 @@
 export default function PauseEnable(context) {
-
 	var JobStarted;
 	var Query = "$expand=MobileStatus";
 	// Fetch User status for operation 
