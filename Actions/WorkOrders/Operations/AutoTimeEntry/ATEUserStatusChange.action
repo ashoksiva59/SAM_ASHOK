@@ -1,12 +1,13 @@
 {
 	"Properties": {
-		"MobileStatus": "STRD",
+		"EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/StartDateTime.js",
+		"MobileStatus": "Hold",
 		"ObjectKey": "#Property:ObjectKey"
 	},
 	"Target": {
 		"EntitySet": "MobileStatuses",
 		"QueryOptions": "",
-		"ReadLink": "{@odata.readLink}",
+		"ReadLink": "/SAPAssetManager/Rules/MobileStatus/MobileStatusReadLink.js",
 		"Service": "/SAPAssetManager/Services/AssetManager.service"
 	},
 	"_Type": "Action.Type.ODataService.UpdateEntity"

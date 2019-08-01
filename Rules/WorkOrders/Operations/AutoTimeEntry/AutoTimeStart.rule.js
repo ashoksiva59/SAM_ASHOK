@@ -1,4 +1,5 @@
 import libCommon from '../../../Common/Library/CommonLibrary';
+import libOprMobile from '../../../Operations/MobileStatus/OperationMobileStatusLibrary';
 export default function AutoTimeStart(context) {
 	debugger;
 
@@ -14,12 +15,15 @@ export default function AutoTimeStart(context) {
 			} else {
 				// Set Confirmation Action
 				libCommon.setStateVariable(context, 'ATEAction', context.localizeText('start'));
-				
+
+				context.showActivityIndicator('');
+				//return libOprMobile.operationStatusPopoverMenu(context);
+
 				// Post User Status of the operation to START
-				//return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action');
-				
+				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action');
+
 				// Post Confirmation with current system date and time
-				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
+				//return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
 			}
 		});
 
