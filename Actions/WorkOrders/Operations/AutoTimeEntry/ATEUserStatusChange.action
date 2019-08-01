@@ -1,7 +1,7 @@
 {
 	"Properties": {
 		"EffectiveTimestamp": "/SAPAssetManager/Rules/DateTime/StartDateTime.js",
-		"MobileStatus": "Hold",
+		"MobileStatus": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEMobileStatus.rule.js",
 		"ObjectKey": "#Property:ObjectKey"
 	},
 	"Target": {

@@ -1,7 +1,6 @@
 import libCommon from '../../../Common/Library/CommonLibrary';
-import libOprMobile from '../../../Operations/MobileStatus/OperationMobileStatusLibrary';
+import Logger from '../../../Log/Logger';
 export default function AutoTimeStart(context) {
-	debugger;
 
 	var JobStartedStatus;
 	var Query = "$expand=MobileStatus";
@@ -15,17 +14,16 @@ export default function AutoTimeStart(context) {
 			} else {
 				// Set Confirmation Action
 				libCommon.setStateVariable(context, 'ATEAction', context.localizeText('start'));
-
-				context.showActivityIndicator('');
-				//return libOprMobile.operationStatusPopoverMenu(context);
-
 				// Post User Status of the operation to START
-				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action');
-
-				// Post Confirmation with current system date and time
-				//return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
+				return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEUserStatusChange.action')
+					.then(function () {
+						// Post Confirmation with current system date and time
+						return context.executeAction('/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeConfirmation.action');
+					}).catch(err => {
+						/**Implementing our Logger class*/
+						Logger.error(context.getGlobalDefinition('/SAPAssetManager/Globals/Logs/CategoryMobileStatus.global').getValue(), err);
+						return '';
+					});
 			}
 		});
-
-	//return clientAPI;
 }

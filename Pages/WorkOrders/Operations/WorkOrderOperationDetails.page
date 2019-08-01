@@ -251,8 +251,8 @@
 			{
 				"Clickable": true,
 				"Enabled": true,
+				"Image": "/SAPAssetManager/Images/Clock.png",
 				"OnPress": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/AutoTimeEntry.action",
-				"SystemItem": "Add",
 				"Visible": true,
 				"_Name": "AutoEntryTime",
 				"_Type": "Control.Type.ToolbarItem"
