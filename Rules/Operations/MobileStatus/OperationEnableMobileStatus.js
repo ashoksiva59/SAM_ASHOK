@@ -3,7 +3,7 @@ import libWOMobile from '../../WorkOrders/MobileStatus/WorkOrderMobileStatusLibr
 import libCommon from '../../Common/Library/CommonLibrary';
 
 export default function OperationEnableMobileStatus(context) {
-	debugger; // Ashok
+	
     var received = libCommon.getAppParam(context, 'MOBILESTATUS', context.getGlobalDefinition('/SAPAssetManager/Globals/MobileStatus/ParameterNames/ReceivedParameterName.global').getValue());
     var hold = libCommon.getAppParam(context, 'MOBILESTATUS', context.getGlobalDefinition('/SAPAssetManager/Globals/MobileStatus/ParameterNames/HoldParameterName.global').getValue());
     var started = libCommon.getAppParam(context, 'MOBILESTATUS', context.getGlobalDefinition('/SAPAssetManager/Globals/MobileStatus/ParameterNames/StartParameterName.global').getValue());
