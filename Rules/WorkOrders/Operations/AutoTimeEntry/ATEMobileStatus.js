@@ -1,9 +1,9 @@
 import QueryBuilder from '../../../Common/Query/QueryBuilder';
 import FetchRequest from '../../../Common/Query/FetchRequest';
 
-export default class {
+export default class ATEMobileStatus {
 
-	static GetMobileStatus(context, entitySet, orderId, operation) {
+	GetMobileStatus(context, entitySet, orderId, operation) {
 		let queryBuilder = new QueryBuilder();
 
 		queryBuilder.addFilter(`OrderId eq '${orderId}'`);

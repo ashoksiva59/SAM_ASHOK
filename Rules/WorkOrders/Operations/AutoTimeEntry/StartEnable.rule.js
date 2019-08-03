@@ -1,7 +1,7 @@
-import ATEGetMobileStatus from '/ATEGetMobileStatus';
+import ATEms from './ATEMobileStatus';
 export default function StartEnable(context) {
 	// Fetch User status for operation 
-	return ATEGetMobileStatus.GetMobileStatus(context, 'MyWorkOrderOperations', context.binding.WOHeader.OrderId, context.binding.OperationNo)
+	return ATEms.GetMobileStatus(context, 'MyWorkOrderOperations', context.binding.WOHeader.OrderId, context.binding.OperationNo)
 		.then(
 			mobileStatus => {
 				// Check Whether Operation has user status as Job Started
