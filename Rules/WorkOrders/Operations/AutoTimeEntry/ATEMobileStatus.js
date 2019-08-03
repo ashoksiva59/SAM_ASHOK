@@ -3,7 +3,7 @@ import FetchRequest from '../../../Common/Query/FetchRequest';
 
 export default class ATEMobileStatus {
 
-	GetMobileStatus(context, entitySet, orderId, operation) {
+	static GetMobileStatus(context, entitySet, orderId, operation) {
 		let queryBuilder = new QueryBuilder();
 
 		queryBuilder.addFilter(`OrderId eq '${orderId}'`);
