@@ -3,6 +3,7 @@
 	"OnSuccess": "/SAPAssetManager/Actions/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationSuccess.action",
 	"Properties": {
 		"Description": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEConfirmationDescription.rule.js",
+		"FinalConfirmation": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATEFinalConfirmationFlag.rule.js",
 		"FinishDate": "/SAPAssetManager/Rules/WorkOrders/Operations/AutoTimeEntry/ATECurrentDate.rule.js",
 		"FinishTime": "/SAPAssetManager/Rules/DateTime/CurrentTime.js",
 		"Operation": "#Property:OperationNo",
